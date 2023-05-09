@@ -38,7 +38,7 @@
     <Patterns>
         <DBPattern dateTimeField="entrytime" dateTimeColumns="entrytime">
         <SQLQuery>
-            <![CDATA[select 'JDE Financial sensor: CREDLIMIT Workflow - unprocessed activity instances' sensor, to_timestamp(to_char(sysdate, 'YYYY-MM-DD hh24:mi:ss'), 'YYYY-MM-DD hh24:mi:ss') entrytime, 'Stuck_CREDLIMIT_Tasks:' || s.CREDLIMIT_WF_ERRORS key_data FROM (SELECT COUNT(*) AS CREDLIMIT_WF_ERRORS FROM (SELECT PIPROCNAME FROM CRPCTL.F98860 WHERE PIPROCSTS IN ('04', '05', '06') AND PIPROCNAME='CREDLIMIT')) s]]>
+            <![CDATA[select 'JDE Financial sensor: CREDLIMIT Workflow - unprocessed activity instances' sensor, to_timestamp(to_char(sysdate, 'YYYY-MM-DD hh24:mi:ss'), 'YYYY-MM-DD hh24:mi:ss') entrytime, 'Stuck_CREDLIMIT_Tasks:' || s.Stuck_CREDLIMIT_Tasks key_data FROM (SELECT COUNT(*) AS Stuck_CREDLIMIT_Tasks FROM (SELECT PIPROCNAME FROM CRPCTL.F98860 WHERE PIPROCSTS IN ('04', '05', '06') AND PIPROCNAME='CREDLIMIT')) s]]>
         </SQLQuery>
         <IsInclude>1</IsInclude>
             <InUse>1</InUse>
@@ -54,7 +54,7 @@
                 </DBPatternField>
                 <DBPatternField>
                                         <DBQueryColName>key_data</DBQueryColName>
-                                        <FieldName>data</FieldName>
+                                        <FieldName>probkey</FieldName>
                                    </DBPatternField>
             </DBQueryFieldList>
             <IsSystem>0</IsSystem>

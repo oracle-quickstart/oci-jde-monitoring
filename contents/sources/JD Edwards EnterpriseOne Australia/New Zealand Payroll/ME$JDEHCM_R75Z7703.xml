@@ -25,20 +25,20 @@
 <IsSystem>0</IsSystem>
 <ProblemPriority>MEDIUM</ProblemPriority>
 </Tag>
-    <Source name="JDE HCM sensor: Data Integrity monitor and prevention (R75A7703)" oms_version="2.50.2.0.0" configWarningSettings="0">
+    <Source name="JDE HCM sensor: Data Integrity monitor and prevention (R75Z7703)" oms_version="2.50.2.0.0" configWarningSettings="0">
     <SourceType>database_sql</SourceType>
     <TargetTypes>
         <TargetType>omc_oracle_db_instance</TargetType>
         <TargetType>omc_oracle_pdb</TargetType>
     </TargetTypes>
-    <DisplayName>JDE HCM sensor: Data Integrity monitor and prevention (R75A7703)</DisplayName>
-    <Description><![CDATA[Data Integrity monitor and prevention (R75A7703) hasn't been ran lately]]></Description>
+    <DisplayName>JDE HCM sensor: Data Integrity monitor and prevention (R75Z7703)</DisplayName>
+    <Description><![CDATA[Data Integrity monitor and prevention (R75Z7703) hasn't been ran lately]]></Description>
     <IsSystem>0</IsSystem>
     <IsSecureContent>1</IsSecureContent>
     <Patterns>
         <DBPattern dateTimeField="entrytime" dateTimeColumns="entrytime">
         <SQLQuery>
-            <![CDATA[select 'JDE HCM sensor: Data Integrity monitor and prevention (R75A7703)' sensor, to_timestamp(to_char(sysdate, 'YYYY-MM-DD hh24:mi:ss'), 'YYYY-MM-DD hh24:mi:ss') entrytime, 'NO_R75A7703_RUNS:' || s.NO_RUNS_OF_R75A7703 key_data FROM (SELECT COUNT(*) AS NO_RUNS_OF_R75A7703 FROM (SELECT JCSBMDATE, JCJOBSTS FROM SVM920.F986110 WHERE JCJOBSTS='D' AND SUBSTR(JCFNDFUF2,1,INSTR(JCFNDFUF2,'_')-1)='R75A7703' AND JCSBMDATE>=1000*(TO_NUMBER(TO_CHAR(SYSDATE - INTERVAL '1' MONTH, 'YYYY'))-1900) + TO_NUMBER(TO_CHAR(SYSDATE - INTERVAL '1' MONTH, 'DDD')))) s]]>
+            <![CDATA[select 'JDE HCM sensor: Data Integrity monitor and prevention (R75Z7703)' sensor, to_timestamp(to_char(sysdate, 'YYYY-MM-DD hh24:mi:ss'), 'YYYY-MM-DD hh24:mi:ss') entrytime, 'NO_R75Z7703_RUNS:' || s.NO_R75Z7703_RUNS key_data FROM (SELECT COUNT(*) AS NO_R75Z7703_RUNS FROM (SELECT JCSBMDATE, JCJOBSTS FROM SVM920.F986110 WHERE JCJOBSTS='D' AND SUBSTR(JCFNDFUF2,1,INSTR(JCFNDFUF2,'_')-1)='R75Z7703' AND JCSBMDATE>=1000*(TO_NUMBER(TO_CHAR(SYSDATE - INTERVAL '1' MONTH, 'YYYY'))-1900) + TO_NUMBER(TO_CHAR(SYSDATE - INTERVAL '1' MONTH, 'DDD')))) s]]>
         </SQLQuery>
         <IsInclude>1</IsInclude>
             <InUse>1</InUse>
@@ -54,7 +54,7 @@
                 </DBPatternField>
                 <DBPatternField>
                                         <DBQueryColName>key_data</DBQueryColName>
-                                        <FieldName>data</FieldName>
+                                        <FieldName>probkey</FieldName>
                                    </DBPatternField>
             </DBQueryFieldList>
             <IsSystem>0</IsSystem>

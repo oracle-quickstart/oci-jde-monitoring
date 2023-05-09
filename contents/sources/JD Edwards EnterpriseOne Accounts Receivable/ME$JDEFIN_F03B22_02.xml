@@ -38,7 +38,7 @@
     <Patterns>
         <DBPattern dateTimeField="entrytime" dateTimeColumns="entrytime">
         <SQLQuery>
-            <![CDATA[select 'JDE Financial sensor: Unique Key field blank in table F03B22' sensor, to_timestamp(to_char(sysdate, 'YYYY-MM-DD hh24:mi:ss'), 'YYYY-MM-DD hh24:mi:ss') entrytime, 'Blanks_RSUKID_F03B22:' || s.NumRecords key_data FROM (SELECT COUNT(*) AS NumRecords FROM CRPDTA.F03B22 WHERE RSUKID IS NULL OR TRIM(RSUKID) IS NULL OR RSUKID=0) s]]>
+            <![CDATA[select 'JDE Financial sensor: Unique Key field blank in table F03B22' sensor, to_timestamp(to_char(sysdate, 'YYYY-MM-DD hh24:mi:ss'), 'YYYY-MM-DD hh24:mi:ss') entrytime, 'Blanks_RSUKID_F03B22:' || s.Blanks_RSUKID_F03B22 key_data FROM (SELECT COUNT(*) AS Blanks_RSUKID_F03B22 FROM CRPDTA.F03B22 WHERE RSUKID IS NULL OR TRIM(RSUKID) IS NULL OR RSUKID=0) s]]>
         </SQLQuery>
         <IsInclude>1</IsInclude>
             <InUse>1</InUse>
@@ -54,7 +54,7 @@
                 </DBPatternField>
                 <DBPatternField>
                                         <DBQueryColName>key_data</DBQueryColName>
-                                        <FieldName>data</FieldName>
+                                        <FieldName>probkey</FieldName>
                                    </DBPatternField>
             </DBQueryFieldList>
             <IsSystem>0</IsSystem>

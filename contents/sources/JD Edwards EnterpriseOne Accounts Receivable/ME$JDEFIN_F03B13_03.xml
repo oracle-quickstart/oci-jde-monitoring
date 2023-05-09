@@ -38,7 +38,7 @@
     <Patterns>
         <DBPattern dateTimeField="entrytime" dateTimeColumns="entrytime">
         <SQLQuery>
-            <![CDATA[select 'JDE Financial sensor: Number of duplicate PYID in F03B13' sensor, to_timestamp(to_char(sysdate, 'YYYY-MM-DD hh24:mi:ss'), 'YYYY-MM-DD hh24:mi:ss') entrytime, 'DUPLICATES_PYID_F03B13:' || s.Duplicate_PYID_F03B13 key_data FROM (SELECT COUNT (*) AS Duplicate_PYID_F03B13 FROM (SELECT RYPYID FROM CRPDTA.F03B13 GROUP BY RYPYID HAVING COUNT(RYPYID)>1)) s]]>
+            <![CDATA[select 'JDE Financial sensor: Number of duplicate PYID in F03B13' sensor, to_timestamp(to_char(sysdate, 'YYYY-MM-DD hh24:mi:ss'), 'YYYY-MM-DD hh24:mi:ss') entrytime, 'DUPLICATES_PYID_F03B13:' || s.DUPLICATES_PYID_F03B13 key_data FROM (SELECT COUNT (*) AS DUPLICATES_PYID_F03B13 FROM (SELECT RYPYID FROM CRPDTA.F03B13 GROUP BY RYPYID HAVING COUNT(RYPYID)>1)) s]]>
         </SQLQuery>
         <IsInclude>1</IsInclude>
             <InUse>1</InUse>
@@ -54,7 +54,7 @@
                 </DBPatternField>
                 <DBPatternField>
                                         <DBQueryColName>key_data</DBQueryColName>
-                                        <FieldName>data</FieldName>
+                                        <FieldName>probkey</FieldName>
                                    </DBPatternField>
             </DBQueryFieldList>
             <IsSystem>0</IsSystem>

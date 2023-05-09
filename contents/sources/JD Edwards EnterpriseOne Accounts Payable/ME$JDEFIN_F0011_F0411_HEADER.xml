@@ -25,20 +25,20 @@
 <IsSystem>0</IsSystem>
 <ProblemPriority>MEDIUM</ProblemPriority>
 </Tag>
-    <Source name="JDE Financial sensor: Voucher transactions with missing Batch Header (F0011) records" oms_version="2.50.2.0.0" configWarningSettings="0">
+    <Source name="JDE Financial sensor: Voucher transactions with missing Batch Header F0011 records" oms_version="2.50.2.0.0" configWarningSettings="0">
     <SourceType>database_sql</SourceType>
     <TargetTypes>
         <TargetType>omc_oracle_db_instance</TargetType>
         <TargetType>omc_oracle_pdb</TargetType>
     </TargetTypes>
-    <DisplayName>JDE Financial sensor: Voucher transactions with missing Batch Header (F0011) records</DisplayName>
+    <DisplayName>JDE Financial sensor: Voucher transactions with missing Batch Header F0011 records</DisplayName>
     <Description><![CDATA[Found one or more transactions in Accounts Payable Ledger (F0411 table) missing a Batch Header record in Batch Headers (F0011 table) .]]></Description>
     <IsSystem>0</IsSystem>
     <IsSecureContent>1</IsSecureContent>
     <Patterns>
         <DBPattern dateTimeField="entrytime" dateTimeColumns="entrytime">
         <SQLQuery>
-            <![CDATA[select 'JDE Financial sensor: Voucher transactions with missing Batch Header (F0011) records' sensor, to_timestamp(to_char(sysdate, 'YYYY-MM-DD hh24:mi:ss'), 'YYYY-MM-DD hh24:mi:ss') entrytime, 'NumRecords :' || s.NumRecords  key_data FROM (SELECT COUNT(DISTINCT(CONCAT(RPICU,RPICUT))) NumRecords FROM CRPDTA.F0411 WHERE RPICUT IN ('V', 'W')   AND RPICU NOT IN (SELECT ICICU FROM CRPDTA.F0011 WHERE ICICUT IN ('V', 'W')) ORDER BY RPICU, RPICUT) s]]>
+            <![CDATA[select 'JDE Financial sensor: Voucher transactions with missing Batch Header F0011 records' sensor, to_timestamp(to_char(sysdate, 'YYYY-MM-DD hh24:mi:ss'), 'YYYY-MM-DD hh24:mi:ss') entrytime, 'NumRecords :' || s.NumRecords  key_data FROM (SELECT COUNT(DISTINCT(CONCAT(RPICU,RPICUT))) NumRecords FROM CRPDTA.F0411 WHERE RPICUT IN ('V', 'W')   AND RPICU NOT IN (SELECT ICICU FROM CRPDTA.F0011 WHERE ICICUT IN ('V', 'W')) ORDER BY RPICU, RPICUT) s]]>
         </SQLQuery>
         <IsInclude>1</IsInclude>
             <InUse>1</InUse>
@@ -54,7 +54,7 @@
                 </DBPatternField>
                 <DBPatternField>
                                         <DBQueryColName>key_data</DBQueryColName>
-                                        <FieldName>data</FieldName>
+                                        <FieldName>probkey</FieldName>
                                    </DBPatternField>
             </DBQueryFieldList>
             <IsSystem>0</IsSystem>
