@@ -1,0 +1,145 @@
+"Name","Recurrence Pattern Unit","Recurrence Pattern Value","Start Hour"
+"JDE Distribution sensor: Impact of Inbound Interoperability table size on Performance processing ","HOUR",1,1
+"JDE Financial sensor: AR to Account Balance by Account ID (R03B707) integrity report has not been run","WEEK","SUN",1
+"JDE HCM sensor: Data Integrity monitor and prevention (R75A7703)","WEEK","SUN",1
+"JDE HCM sensor: Data Integrity monitor and prevention (R75Z7703)","WEEK","SUN",1
+"JDE Financial sensor: Unposted Batches (R007011) integrity report has not been run","WEEK","SUN",1
+"JDE Financial sensor: Integrity Check of AR to GL Receipts by Batch has not been run","WEEK","SUN",1
+"JDE Financial sensor: Unique Key field blank in table F03B13","MIN",15,1
+"JDE Financial sensor: Performance impact - Size of F0111Z1 Z table","MIN",15,1
+"JDE Financial sensor: Number of PYID mismatches in F03B13 to F03B14","WEEK","SUN",1
+"JDE Financial sensor: Integrity Check of Company by Batch Out of Balance has not been run","WEEK","SUN",1
+"JDE Distribution sensor: F4301Z F4311Z Purchasing Work files   Z files","WEEK","FRI",1
+"JDE Distribution sensor: Item Location (F41021) populated with Negative On Hand (PQOH)","MIN",15,1
+"JDE HCM sensor: Data Integrity monitor and prevention (R777011)","WEEK","SUN",1
+"JDE Financial sensor: Integrity Check for Repost Account Ledger has not been run","WEEK","SUN",1
+"JDE Financial sensor: Number of non null total amounts of posted rcpts adjst. ","WEEK","SUN",1
+"JDE Financial sensor: Number of posted vouchers with not null total amount","WEEK","SUN",1
+"JDE Financial sensor: Performance impact - Size of F03B13Z1 Z table","MIN",15,1
+"JDE HCM sensor: Data Integrity monitor and prevention (R77703)","WEEK","SUN",1
+"JDE Financial sensor: Number of automatic AP checks with not null total amount","WEEK","SUN",1
+"JDE Manufacturing sensor: Short Item Number in F3002 not in F4101","DAY",1,1
+"JDE Financial sensor: Unique Key field blank in table F03B22","MIN",15,1
+"JDE Financial sensor: Orphan data in F04571, F04572 or F04573","MIN",15,1
+"JDE Financial sensor: Integrity Check of AP Payments to GL by Batch has not been run","WEEK","SUN",1
+"JDE Distribution sensor: Unpurged successfully processed records on EDI (R47011)","HOUR",1,1
+"JDE Financial sensor: Integrity Check of F03B14 to F03B13 Integrity has not been run","WEEK","SUN",1
+"JDE Financial sensor: Corrupt or non-existent Unique Next Number in F03B20","MIN",15,1
+"JDE Financial sensor: Integrity Check of Account Balance without Account Master has not been run","WEEK","SUN",1
+"JDE Financial sensor: Integrity Check of Accounts without Business Units has not been run","WEEK","SUN",1
+"JDE Manufacturing sensor: Corrupt UKID in F31122","MIN",15,1
+"JDE Financial sensor: Unique Key field blank in table F03B14","MIN",15,1
+"JDE Financial sensor: Number of PYID mismatches in F03B14 to F03B13","WEEK","SUN",1
+"JDE Distribution sensor: Missing CSIN CSPO from F4105","MIN",15,1
+"JDE Distribution sensor: Item Location (F41021) populated with Negative Hard commitment","MIN",15,1
+"JDE Financial sensor: Circular references in F0150","WEEK","SUN",1
+"JDE Distribution sensor: Stuck Voucher Batches in F0411","MIN",15,1
+"JDE Financial sensor: Integrity Check of Intercompany Accounts in Balance has not been run","WEEK","SUN",1
+"JDE Distribution sensor: Duplicate NLIN in F43121","MIN",15,1
+"JDE Distribution sensor: F4941 Flags Not Synched","MIN",15,1
+"JDE HCM sensor: Data Integrity monitor and prevention (R077011)","WEEK","SUN",1
+"JDE Financial sensor: Voucher Post Code Mismatch Between F0411 and F0011","WEEK","SUN",1
+"JDE Financial sensor: Corrupt or non-existent Unique Next Number in F0413","MIN",15,1
+"JDE Financial sensor: CREDLIMIT Workflow - unprocessed activity instances","HOUR",1,1
+"JDE Financial sensor: EXPROUTING Workflow - unprocessed activity instances","HOUR",1,1
+"JDE Financial sensor: Unique Key field blank in table F00092","MIN",15,1
+"JDE Financial sensor: Unique Key field blank in table F03B20","MIN",15,1
+"JDE Financial sensor: Corrupt or non-existent Unique Next Number in F03B22","MIN",15,1
+"JDE Financial sensor: Unique Key field blank in table F0413","MIN",15,1
+"JDE Financial sensor: Unique Key field blank in table F0411SW","MIN",15,1
+"JDE Financial sensor: Integrity Check of Transactions to Batch Headers","WEEK","SUN",1
+"JDE Financial sensor: Unique Key field blank in table F0901","MIN",15,1
+"JDE Financial sensor: Unique Key field blank in table F0902","MIN",15,1
+"JDE Financial sensor: Integrity Check of  F03B11 to F03B14 Integrity has not been run","WEEK","SUN",1
+"JDE Financial sensor: Unique Key field blank in table F0101","MIN",15,1
+"JDE Financial sensor: Integrity Check of Companies in Balance has not been run","WEEK","SUN",1
+"JDE Financial sensor: Performance impact - Size of F03B13Z2 Z table","MIN",15,1
+"JDE Financial sensor: Performance impact - Size of F01112Z1 Z table","MIN",15,1
+"JDE Manufacturing sensor: Short Item Number in F3002 not in F4102","DAY",1,1
+"JDE Distribution sensor: Negative Cost in F4105","MIN",15,1
+"JDE Financial sensor: Integrity Check of Transactions without Account Master has not been run","WEEK","SUN",1
+"JDE Financial sensor: Number of not posted batches older than 2 month","WEEK","SUN",1
+"JDE Financial sensor: Batches Out of Balance (R007032) integrity report has not been run","WEEK","SUN",1
+"JDE Financial sensor: R03B525 takes long time to run","WEEK","SUN",1
+"JDE Financial sensor: Performance impact - Size of F0911Z1 Z table","MIN",15,1
+"JDE Distribution sensor: F4301 - Missing header details","MIN",15,1
+"JDE Financial sensor: Integrity Check of AP to GL Integrity with Adjustments has not been run","WEEK","SUN",1
+"JDE Financial sensor: Number of paid items with not null open amount in F03B11","WEEK","SUN",1
+"JDE Financial sensor: Unique Key field blank in table F04571","MIN",15,1
+"JDE Financial sensor: Number of PYID mismatches in F0414 to F0413","WEEK","SUN",1
+"JDE Financial sensor: Corrupt or non-existent Unique Next Number in F0450","MIN",15,1
+"JDE Financial sensor: Payment Post Code mismatch betwee F0413 and F0011","WEEK","SUN",1
+"JDE Financial sensor: R03B16A takes long time to run","WEEK","SUN",1
+"JDE Financial sensor: Number of manual  void checks w match with not null total amount","WEEK","SUN",1
+"JDE Financial sensor: Number of manual void checks wo match with not null total amount","WEEK","SUN",1
+"JDE Financial sensor: Corrupt non-existent Unique Next Number for F00092","MIN",15,1
+"JDE Distribution sensor: Price Adjustment will expire in 7 days","WEEK","FRI",1
+"JDE Financial sensor: Unique Key field blank in table F0450","MIN",15,1
+"JDE Financial sensor: Corrupt or non-existent Unique Next Number in F04571","MIN",15,1
+"JDE Financial sensor: Unique Key field blank in table F0030","MIN",15,1
+"JDE Financial sensor: Performance impact - Size of F0101Z2 Z table","MIN",15,1
+"JDE Financial sensor: Corrupted records in F04571, F04572 or F04573","MIN",15,1
+"JDE Financial sensor: Accounts associated with AAIs not exist in the Account Master","WEEK","SUN",1
+"JDE Financial sensor: Performance impact - Size of F01161Z1 Z table","MIN",15,1
+"JDE Financial sensor: D posting code mismatch in F03B13 to F03B14","WEEK","SUN",1
+"JDE Financial sensor: Unique Key field blank in table F03012","MIN",15,1
+"JDE Manufacturing sensor: Work order records missing UOM in F3102 ","MIN",15,1
+"JDE Financial sensor: Integrity Check of AP to GL Integrity by Batch has not bee run","WEEK","SUN",1
+"JDE Financial sensor: Corrupt or non-existent Unique Next Number in F03B11SW","MIN",15,1
+"JDE Manufacturing sensor: Corrupt UKID in F3111","DAY",1,1
+"JDE Financial sensor: Corrupt or non-existent Unique Next Number in F0411SW","MIN",15,1
+"JDE Financial sensor: Corrupted records in F0902 due currency code change","HOUR",1,1
+"JDE HCM sensor: F07901 Not Current","WEEK","SUN",1
+"JDE Distribution sensor: Orphaned Records F00095","HOUR",3,1
+"JDE Financial sensor: Unique Key field blank in table F04572","MIN",15,1
+"JDE Financial sensor: Number of PYID mismatches in F0413 to F0414","WEEK","SUN",1
+"JDE Financial sensor: Unique Key field blank in table F04573","MIN",15,1
+"JDE Financial sensor: AP to GL by Offset Account Report (R047001A) integrity report has not been run","WEEK","SUN",1
+"JDE Financial sensor: Number of not paid item with null open amount in F0411","WEEK","SUN",1
+"JDE Financial sensor: Corrupt or non-existent Unique Next Number in F03B571","MIN",15,1
+"JDE Financial sensor: AR to GL by Batch Integrity Report (R03B701) has not been run","WEEK","SUN",1
+"JDE Financial sensor: Integrity Check of F03B13 to F0911 Integrity has not been run","WEEK","SUN",1
+"JDE Financial sensor: Integrity Check of F03B11 to F03B22 Integrity has not been run","WEEK","SUN",1
+"JDE Financial sensor: Integrity Check of F03B22 to F03B23 Integrity has not been run","WEEK","SUN",1
+"JDE Financial sensor: Voucher transactions with missing Batch Header (F0011) records","WEEK","SUN",1
+"JDE Financial sensor: Stuck Non-Purchasing Voucher Batches in F0411","MIN",15,1
+"JDE Financial sensor: Integrity Check of F03B11 to F03B40 Integrity has not been run","WEEK","SUN",1
+"JDE Financial sensor: Batch to Detail and Out of Balance (R007031) integrity report has not been run","WEEK","SUN",1
+"JDE Financial sensor: Performance impact - Size of F03B11Z1 Z table","MIN",15,1
+"JDE Financial sensor: Number of not paid items with null open amount in F03B11","WEEK","SUN",1
+"JDE Financial sensor: Corrupt or non-existent Unique Next Number in F097021W","MIN",15,1
+"JDE Financial sensor: Corrupt or non-existent Unique Next Number in F097031W","MIN",15,1
+"JDE Financial sensor: Corrupt or non-existent Unique Next Number in F097041W","MIN",15,1
+"JDE Financial sensor: R03B551 takes long time to run","WEEK","SUN",1
+"JDE Financial sensor: Corrupt or non-existent Unique Next Number in F03B116W","MIN",15,1
+"JDE Financial sensor: Unique Key field blank in table F03B116W","MIN",15,1
+"JDE Financial sensor: Number of not null total amounts of posted IB batches","WEEK","SUN",1
+"JDE Financial sensor: Performance impact - Size of F0902Z1 Z table","MIN",15,1
+"JDE Financial sensor: Performance impact - Size of F03B11Z2 Z table","MIN",15,1
+"JDE Financial sensor: Number of AP Trade Accounts with blank Post Edit Code","WEEK","SUN",1
+"JDE Financial sensor: Corrupt or non-existent Unique Next Number in F097001W","MIN",15,1
+"JDE Financial sensor: R03B50 takes long time to run","WEEK","SUN",1
+"JDE Financial sensor: Corrupt or non-existent Unique Next Number in F09350W","MIN",15,1
+"JDE Financial sensor: Number of Intercompany Accounts with blank Post Edit Code","WEEK","SUN",1
+"JDE Financial sensor: Number of AR Trade Accounts with blank Post Edit Code","WEEK","SUN",1
+"JDE Distribution sensor: Item Branch records missing primary location in F41021","MIN",15,1
+"JDE Financial sensor: Performance impact - Size of F01151Z1 Z table","MIN",15,1
+"JDE Financial sensor: Performance impact - Size of F0115Z1 Z table","MIN",15,1
+"JDE Financial sensor: Unique Key field blank in table F03B571","MIN",15,1
+"JDE Financial sensor: Unique Key field blank in table F0401","MIN",15,1
+"JDE Financial sensor: Number of duplicate PYID in F03B13","WEEK","SUN",1
+"JDE Financial sensor: Unique Key field blank in table F0414","MIN",15,1
+"JDE Financial sensor: D posting code mismatch in F0413 to F0414","WEEK","SUN",1
+"JDE Distribution sensor: Orphaned Records in F41021 Transaction Workfile (F41021WF)","HOUR",3,1
+"JDE Financial sensor: Number of AP Trade accounts without AE documents","WEEK","SUN",1
+"JDE Financial sensor: Number of AR Trade accounts without AE documents","WEEK","SUN",1
+"JDE Financial sensor: Corrupt or non-existent Unique Next Number in F0030","MIN",15,1
+"JDE Financial sensor: Integrity Check of F03B11 to F0911 Integrity has not been run","WEEK","SUN",1
+"JDE Financial sensor: Corrupt or non-existent Unique Next Number in F09J12","WEEK","SUN",1
+"JDE Distribution sensor: Orphaned Records in F42565 Invoice Workfile","DAY",1,1
+"JDE Financial sensor: Integrity Check of Account Balance to Transactions has not been run","WEEK","SUN",1
+"JDE Financial sensor: Number of paid item with not null open amount in F0411","WEEK","SUN",1
+"JDE Financial sensor: Integrity Check of AP Payments to GL Integrity has not been run","WEEK","SUN",1
+"JDE Financial sensor: Integrity Check of AP Payments to Voucher Integrity has not been run","WEEK","SUN",1
+"JDE Distribution sensor: Orphaned Records in F40UI74","MIN",15,1
+"JDE Financial sensor: Unique Key field blank in table F03B11SW","MIN",15,1
