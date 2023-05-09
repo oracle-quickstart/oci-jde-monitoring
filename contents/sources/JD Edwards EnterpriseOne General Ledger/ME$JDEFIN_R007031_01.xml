@@ -25,20 +25,20 @@
 <IsSystem>0</IsSystem>
 <ProblemPriority>MEDIUM</ProblemPriority>
 </Tag>
-    <Source name="JDE Financial sensor: Batch to Detail & Out of Balance (R007031) integrity report has not been run" oms_version="2.50.2.0.0" configWarningSettings="0">
+    <Source name="JDE Financial sensor: Batch to Detail and Out of Balance (R007031) integrity report has not been run" oms_version="2.50.2.0.0" configWarningSettings="0">
     <SourceType>database_sql</SourceType>
     <TargetTypes>
         <TargetType>omc_oracle_db_instance</TargetType>
         <TargetType>omc_oracle_pdb</TargetType>
     </TargetTypes>
-    <DisplayName>JDE Financial sensor: Batch to Detail & Out of Balance (R007031) integrity report has not been run</DisplayName>
-    <Description><![CDATA[Batch to Detail & Out of Balance (R007031) integrity report hasn't been run during the last week]]></Description>
+    <DisplayName>JDE Financial sensor: Batch to Detail and Out of Balance (R007031) integrity report has not been run</DisplayName>
+    <Description><![CDATA[Batch to Detail and Out of Balance (R007031) integrity report hasn't been run during the last week]]></Description>
     <IsSystem>0</IsSystem>
     <IsSecureContent>1</IsSecureContent>
     <Patterns>
         <DBPattern dateTimeField="entrytime" dateTimeColumns="entrytime">
         <SQLQuery>
-            <![CDATA[select 'JDE Financial sensor: Batch to Detail & Out of Balance (R007031) integrity report has not been run' sensor, to_timestamp(to_char(sysdate, 'YYYY-MM-DD hh24:mi:ss'), 'YYYY-MM-DD hh24:mi:ss') entrytime, 'Check_Integrity_R007031_Days:' || s.Check_Integrity_R007031_Days key_data FROM (SELECT CASE WHEN MIN(Check_Integrity_R007031_Days) IS NULL THEN 9999999 ELSE MIN(Check_Integrity_R007031_Days) END as Check_Integrity_R007031_Days FROM (SELECT 1000*(TO_NUMBER(TO_CHAR(SYSDATE, 'YYYY'))-1900)+TO_NUMBER(TO_CHAR(SYSDATE, 'DDD'))-a.JCACTDATE as Check_Integrity_R007031_Days FROM SVM920.F986110 a LEFT JOIN SVM920.F986114 b ON a.JCJOBNBR=b.JCJOBNBR WHERE b.JCPID in ('R007031') AND a.JCJOBSTS='D' ORDER BY JCACTDATE DESC fetch first row only)  ) s]]>
+            <![CDATA[select 'JDE Financial sensor: Batch to Detail and Out of Balance (R007031) integrity report has not been run' sensor, to_timestamp(to_char(sysdate, 'YYYY-MM-DD hh24:mi:ss'), 'YYYY-MM-DD hh24:mi:ss') entrytime, 'Check_Integrity_R007031_Days:' || s.Check_Integrity_R007031_Days key_data FROM (SELECT CASE WHEN MIN(Check_Integrity_R007031_Days) IS NULL THEN 9999999 ELSE MIN(Check_Integrity_R007031_Days) END as Check_Integrity_R007031_Days FROM (SELECT 1000*(TO_NUMBER(TO_CHAR(SYSDATE, 'YYYY'))-1900)+TO_NUMBER(TO_CHAR(SYSDATE, 'DDD'))-a.JCACTDATE as Check_Integrity_R007031_Days FROM SVM920.F986110 a LEFT JOIN SVM920.F986114 b ON a.JCJOBNBR=b.JCJOBNBR WHERE b.JCPID in ('R007031') AND a.JCJOBSTS='D' ORDER BY JCACTDATE DESC fetch first row only)  ) s]]>
         </SQLQuery>
         <IsInclude>1</IsInclude>
             <InUse>1</InUse>
