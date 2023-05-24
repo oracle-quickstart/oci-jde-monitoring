@@ -13,14 +13,14 @@ F4941 Flags Not Synched (JDE Distribution)
 And 100s of more issues
 This OCI Resource Manager stack creates a instance in the subnet from which JDE Database is accessible, configures Management Agent and Logging Analytics to run regular Business checks. It installs four new dashboards covering different tiers of JDE deployment. Note: This stack doesn't start standard Logs collection and Logging Analytics JDE Discovery from the UI should be used to discover and enable logs collection.
 
-As part of this deployment, a compute instance is created and Oracle Cloud Agent is configured to collect log data. Users can select the JDE products that they are using and JDE sensor sources for those products are created. JDE Database entity and source-entity associations are also created.  
+As part of this deployment, a compute instance is created and Oracle Cloud Agent is configured to collect log data. Users can select the JDE products that they are using and JDE sensor sources for those products are created. JDE Database entity and source-entity associations are also created.
 
 ## Prerequisites
 - VCN and subnet from where database can be accessed.
 - The subnet should have access to OCI Services (via a Service Gateway)
 - Quota to create the following resources: 1 Compute instance,  1 dynamic group, 1 policy
-- Store JDE DB password in OCI Vault in base encoded form. 
-- Store schedule file in OCI Object Storage bucket. 
+- Store JDE DB password in OCI Vault in base encoded form.
+- Store schedule file in OCI Object Storage bucket.
 - Create database user with access to select from tables used in the sensors. Use USER_ACCESS_TABLES.md file.
 
 If you don't have the required permissions and quota, contact your tenancy administrator. See [Policy Reference](https://docs.cloud.oracle.com/en-us/iaas/Content/Identity/Reference/policyreference.htm), [Service Limits](https://docs.cloud.oracle.com/en-us/iaas/Content/General/Concepts/servicelimits.htm), [Compartment Quotas](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcequotas.htm).
@@ -53,7 +53,7 @@ Now, you'll want a local copy of this repo. You can make that with the commands:
     git clonehttps://github.com/oracle-quickstart/oci-jde-monitoring.git
     cd oci-jde-monitoring
     ls
-  
+
 ### Set Up and Configure Terraform
 
 1. Complete the prerequisites described [here](https://github.com/cloud-partners/oci-prerequisites).
@@ -64,7 +64,7 @@ Now, you'll want a local copy of this repo. You can make that with the commands:
 # Authentication
 tenancy_ocid="<tenancy_ocid>"
 auth_type="user"
-# Config  file is ~/.oci/config 
+# Config  file is ~/.oci/config
 config_file_profile="DEFAULT"
 
 # Region
@@ -141,5 +141,3 @@ When you no longer need the deployment, you can run this command to destroy the 
 - ALLOW DYNAMIC-GROUP <instance_dynamic_group_name> TO MANAGE OBJECTS IN COMPARTMENT ID <db_compartment_ocid>
 - ALLOW DYNAMIC-GROUP <instance_dynamic_group_name> TO READ BUCKETS IN COMPARTMENT ID <db_compartment_ocid>
 - ALLOW DYNAMIC-GROUP <instance_dynamic_group_name> TO READ secret-family in COMPARTMENT ID <vault_compartment_ocid>} where target.secret.id = '<db_secret_ocid>'
-
-
