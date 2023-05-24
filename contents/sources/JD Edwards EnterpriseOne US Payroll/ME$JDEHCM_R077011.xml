@@ -38,7 +38,7 @@
     <Patterns>
         <DBPattern dateTimeField="entrytime" dateTimeColumns="entrytime">
         <SQLQuery>
-            <![CDATA[select 'JDE HCM sensor: Data Integrity monitor and prevention (R077011)' sensor, to_timestamp(to_char(sysdate, 'YYYY-MM-DD hh24:mi:ss'), 'YYYY-MM-DD hh24:mi:ss') entrytime, 'NO_R077011_RUNS:' || s.NO_RUNS_OF_R077011 key_data FROM (SELECT COUNT(*) AS NO_RUNS_OF_R077011 FROM (SELECT JCSBMDATE, JCJOBSTS FROM SVM920.F986110 WHERE JCJOBSTS='D' AND SUBSTR(JCFNDFUF2,1,INSTR(JCFNDFUF2,'_')-1)='R077011' AND JCSBMDATE>=1000*(TO_NUMBER(TO_CHAR(SYSDATE - INTERVAL '1' MONTH, 'YYYY'))-1900) + TO_NUMBER(TO_CHAR(SYSDATE - INTERVAL '1' MONTH, 'DDD')))) s]]>
+            <![CDATA[select 'JDE HCM sensor: Data Integrity monitor and prevention (R077011)' sensor, to_timestamp(to_char(sysdate, 'YYYY-MM-DD hh24:mi:ss'), 'YYYY-MM-DD hh24:mi:ss') entrytime, 'NO_R077011_RUNS:' || s.NO_R077011_RUNS key_data FROM (SELECT COUNT(*) AS NO_R077011_RUNS FROM (SELECT JCSBMDATE, JCJOBSTS FROM SVM920.F986110 WHERE JCJOBSTS='D' AND SUBSTR(JCFNDFUF2,1,INSTR(JCFNDFUF2,'_')-1)='R077011' AND JCSBMDATE>=1000*(TO_NUMBER(TO_CHAR(SYSDATE - INTERVAL '1' MONTH, 'YYYY'))-1900) + TO_NUMBER(TO_CHAR(SYSDATE - INTERVAL '1' MONTH, 'DDD')))) s]]>
         </SQLQuery>
         <IsInclude>1</IsInclude>
             <InUse>1</InUse>
@@ -54,7 +54,7 @@
                 </DBPatternField>
                 <DBPatternField>
                                         <DBQueryColName>key_data</DBQueryColName>
-                                        <FieldName>data</FieldName>
+                                        <FieldName>probkey</FieldName>
                                    </DBPatternField>
             </DBQueryFieldList>
             <IsSystem>0</IsSystem>

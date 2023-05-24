@@ -38,7 +38,7 @@
     <Patterns>
         <DBPattern dateTimeField="entrytime" dateTimeColumns="entrytime">
         <SQLQuery>
-            <![CDATA[select 'JDE Financial sensor: Corrupt or non-existent Unique Next Number in F03B11SW' sensor, to_timestamp(to_char(sysdate, 'YYYY-MM-DD hh24:mi:ss'), 'YYYY-MM-DD hh24:mi:ss') entrytime, 'Corrupt_UKID_F03B11SW:' || s.NoRecords key_data FROM (SELECT COUNT(*) AS NoRecords FROM CRPDTA.F00022 WHERE UKOBNM='F03B11SW  ' AND UKUKID<=(SELECT MAX(CSUKID) FROM CRPDTA.F03B11SW)) s]]>
+            <![CDATA[select 'JDE Financial sensor: Corrupt or non-existent Unique Next Number in F03B11SW' sensor, to_timestamp(to_char(sysdate, 'YYYY-MM-DD hh24:mi:ss'), 'YYYY-MM-DD hh24:mi:ss') entrytime, 'Corrupt_UKID_F03B11SW:' || s.Corrupt_UKID_F03B11SW key_data FROM (SELECT COUNT(*) AS Corrupt_UKID_F03B11SW FROM CRPDTA.F00022 WHERE UKOBNM='F03B11SW  ' AND UKUKID<=(SELECT MAX(CSUKID) FROM CRPDTA.F03B11SW)) s]]>
         </SQLQuery>
         <IsInclude>1</IsInclude>
             <InUse>1</InUse>
@@ -54,7 +54,7 @@
                 </DBPatternField>
                 <DBPatternField>
                                         <DBQueryColName>key_data</DBQueryColName>
-                                        <FieldName>data</FieldName>
+                                        <FieldName>probkey</FieldName>
                                    </DBPatternField>
             </DBQueryFieldList>
             <IsSystem>0</IsSystem>

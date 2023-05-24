@@ -38,7 +38,7 @@
     <Patterns>
         <DBPattern dateTimeField="entrytime" dateTimeColumns="entrytime">
         <SQLQuery>
-            <![CDATA[select 'JDE Financial sensor: Number of not paid items with null open amount in F03B11' sensor, to_timestamp(to_char(sysdate, 'YYYY-MM-DD hh24:mi:ss'), 'YYYY-MM-DD hh24:mi:ss') entrytime, 'F03B11_NOT_PAY_W_NULL_OPEN_AMNT:' || s.F03B11_NOT_PAY_W_NULL_OPN_AMNT key_data FROM (SELECT COUNT(*) AS F03B11_NOT_PAY_W_NULL_OPN_AMNT FROM CRPDTA.F03B11 WHERE TRIM(RPICUT) LIKE 'IB' AND TRIM(RPPST) NOT LIKE 'P' AND (RPAAP IS NULL OR RPAAP = 0)) s]]>
+            <![CDATA[select 'JDE Financial sensor: Number of not paid items with null open amount in F03B11' sensor, to_timestamp(to_char(sysdate, 'YYYY-MM-DD hh24:mi:ss'), 'YYYY-MM-DD hh24:mi:ss') entrytime, 'F03B11_NOT_PAY_W_NULL_OPEN_AMNT:' || s.F03B11_NOT_PAY_W_NULL_OPEN_AMNT key_data FROM (SELECT COUNT(*) AS F03B11_NOT_PAY_W_NULL_OPEN_AMNT FROM CRPDTA.F03B11 WHERE TRIM(RPICUT) LIKE 'IB' AND TRIM(RPPST) NOT LIKE 'P' AND (RPAAP IS NULL OR RPAAP = 0)) s]]>
         </SQLQuery>
         <IsInclude>1</IsInclude>
             <InUse>1</InUse>
@@ -54,7 +54,7 @@
                 </DBPatternField>
                 <DBPatternField>
                                         <DBQueryColName>key_data</DBQueryColName>
-                                        <FieldName>data</FieldName>
+                                        <FieldName>probkey</FieldName>
                                    </DBPatternField>
             </DBQueryFieldList>
             <IsSystem>0</IsSystem>
