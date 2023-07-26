@@ -15,6 +15,8 @@ This OCI Resource Manager stack creates a instance in the subnet from which JDE 
 
 As part of this deployment, a compute instance is created and Oracle Cloud Agent is configured to collect log data. Users can select the JDE products that they are using and JDE sensor sources for those products are created. JDE Database entity and source-entity associations are also created.
 
+The JD Edwards EnterpriseOne sensors do not extract Personal Information (PI) from any table
+
 ## Prerequisites
 - VCN and subnet from where database can be accessed.
 - The subnet should have access to OCI Services (via a Service Gateway)
