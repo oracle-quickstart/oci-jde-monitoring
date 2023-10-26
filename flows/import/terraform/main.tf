@@ -12,7 +12,7 @@ locals {
   db_name                      = "${var.la_entity_name}"
   log_group_name               = "EBSDBLogs"
   target_system                = "jd-edwards"
-  kc_path                      = "../../../knowledge-content/${target_system}"
+  kc_path                      = "../../../knowledge-content/${local.target_system}"
 }
 
 # Compute instance dynamic group and policies
