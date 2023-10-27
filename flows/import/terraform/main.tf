@@ -185,11 +185,7 @@ module "logan_sources" {
 resource "null_resource" "import_lookups" {
 
   provisioner "local-exec" {
-<<<<<<< HEAD
     command = "python3 ./scripts/import_lookup.py -t Lookup -a ${var.auth_type} -p ${var.config_file_profile} -n \"JDE Functional Sensors\" -f ${local.kc_path}/logan-lookups/JDE_Lookup.csv"
-=======
-    command = "python3 ./scripts/import_lookup.py -t Lookup -a ${var.auth_type} -p ${var.config_file_profile} -n \"EBS Functional Sensors\" -f ${local.kc_path}/logan-lookups/EBS_Lookup.csv"
->>>>>>> 56a0af4f374c973eddf639af5744edf3108baa7e
   }
 }
 
