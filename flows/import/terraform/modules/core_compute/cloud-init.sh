@@ -117,7 +117,7 @@ cat > $CREDS_JSON_FILE <<EOF
 "source": "lacollector.la_database_sql",
 "name": "LCAgentDBCreds.${entity_name}",
 "type": "DBCreds",
-"description":"This is a DB credential used to connect to EBS DB",
+"description":"This is a DB credential used to connect to JDE DB",
 "usage": "LOGANALYTICS",
 "disabled": "false",
 "properties":[
@@ -133,7 +133,7 @@ sudo -u oracle-cloud-agent bash -c "cat $CREDS_JSON_FILE | bash $BASE_DIR/polari
 
 echo "Successfully added secrets to agent wallet"
 
-# Add EBS DB logon property
+# Add JDE DB logon property
 echo "loganalytics.database_sql.dblogonversion=omc_oracle_db_instance:${entity_name}=8" >> $BASE_DIR/polaris/agent_inst/config/emd.properties
 
 echo "Fetching schedule file from object storage"
@@ -142,7 +142,7 @@ oci os object get --auth instance_principal --bucket-name ${bucket_name} --name 
 cp $TMP_DIR/schedule_file.csv /tmp/schedule_file.csv
 
 # put schedule file in agent directory
-sudo mkdir -p  $BASE_DIR/polaris/agent_inst/laconfig && sudo cp $TMP_DIR/schedule_file.csv $BASE_DIR/polaris/agent_inst/laconfig/logan_schedule_database_sql_ebs.csv
+sudo mkdir -p  $BASE_DIR/polaris/agent_inst/laconfig && sudo cp $TMP_DIR/schedule_file.csv $BASE_DIR/polaris/agent_inst/laconfig/logan_schedule_database_sql_JDE.csv
 
 echo "Restarting mgmt agent"
 # restart agent
