@@ -18,7 +18,7 @@
         <MultiValued>0</MultiValued>
         <SMAEnabledSetting>0</SMAEnabledSetting>
     </Field>
-
+    
     <Tag>
 <Name>#low_severity_sensor</Name>
 <DisplayName>Low Severity Sensor</DisplayName>
@@ -38,7 +38,7 @@
     <Patterns>
         <DBPattern dateTimeField="entrytime" dateTimeColumns="entrytime">
         <SQLQuery>
-            <![CDATA[select 'JDE Distribution sensor: F4301Z F4311Z Purchasing Work files   Z files' sensor, to_timestamp(to_char(sysdate, 'YYYY-MM-DD hh24:mi:ss'), 'YYYY-MM-DD hh24:mi:ss') entrytime, 'Existing_Records_F4301Z_F4311Z:' || s.Existing_Records_F4301Z_F4311Z key_data FROM (SELECT COUNT(*) Existing_Records_F4301Z_F4311Z FROM (SELECT COUNT(*) Existing_Records FROM CRPDTA.F4301Z where 1000*(TO_NUMBER(TO_CHAR(SYSDATE, 'YYYY'))-1900)+TO_NUMBER(TO_CHAR(SYSDATE, 'DDD'))-PAUPMJ>0 UNION ALL SELECT COUNT(*) Existing_Records FROM CRPDTA.F4311Z where 1000*(TO_NUMBER(TO_CHAR(SYSDATE, 'YYYY'))-1900)+TO_NUMBER(TO_CHAR(SYSDATE, 'DDD'))-PWUPMJ>0) WHERE Existing_Records>0) s]]>
+            <![CDATA[select 'JDE Distribution sensor: F4301Z F4311Z Purchasing Work files   Z files' sensor, to_timestamp(to_char(sysdate, 'YYYY-MM-DD hh24:mi:ss'), 'YYYY-MM-DD hh24:mi:ss') entrytime, 'Existing_Records_F4301Z_F4311Z:' || s.Existing_Records_F4301Z_F4311Z key_data FROM (SELECT COUNT(*) Existing_Records_F4301Z_F4311Z FROM (SELECT COUNT(*) Existing_Records FROM {business_data_schema}.F4301Z where 1000*(TO_NUMBER(TO_CHAR(SYSDATE, 'YYYY'))-1900)+TO_NUMBER(TO_CHAR(SYSDATE, 'DDD'))-PAUPMJ>0 UNION ALL SELECT COUNT(*) Existing_Records FROM {business_data_schema}.F4311Z where 1000*(TO_NUMBER(TO_CHAR(SYSDATE, 'YYYY'))-1900)+TO_NUMBER(TO_CHAR(SYSDATE, 'DDD'))-PWUPMJ>0) WHERE Existing_Records>0) s]]>
         </SQLQuery>
         <IsInclude>1</IsInclude>
             <InUse>1</InUse>
@@ -81,6 +81,6 @@
             <Name>udfs1</Name>
             <DisplayName>sensor</DisplayName>
         </FieldNameMap>
-
+        
     </FieldNameMaps>
 </LoganContent>

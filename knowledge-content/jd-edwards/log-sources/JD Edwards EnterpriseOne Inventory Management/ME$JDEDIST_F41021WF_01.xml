@@ -18,7 +18,7 @@
         <MultiValued>0</MultiValued>
         <SMAEnabledSetting>0</SMAEnabledSetting>
     </Field>
-
+    
     <Tag>
 <Name>#low_severity_sensor</Name>
 <DisplayName>Low Severity Sensor</DisplayName>
@@ -38,7 +38,7 @@
     <Patterns>
         <DBPattern dateTimeField="entrytime" dateTimeColumns="entrytime">
         <SQLQuery>
-            <![CDATA[select 'JDE Distribution sensor: Orphaned Records in F41021 Transaction Workfile (F41021WF)' sensor, to_timestamp(to_char(sysdate, 'YYYY-MM-DD hh24:mi:ss'), 'YYYY-MM-DD hh24:mi:ss') entrytime, 'Orphaned_Records_F41021WF:' || s.Orphaned_Records_F41021WF key_data FROM (SELECT COUNT(*) Orphaned_Records_F41021WF FROM CRPDTA.F41021WF WHERE (CASE WHEN TO_NUMBER(TO_CHAR(SYSDATE, 'HH24')) >= 1 AND ((LWUPMJ < (1000*(TO_NUMBER(TO_CHAR(SYSDATE, 'YYYY'))-1900) + TO_NUMBER(TO_CHAR(SYSDATE, 'DDD')))) OR (LWUPMJ = (1000*(TO_NUMBER(TO_CHAR(SYSDATE, 'YYYY'))-1900) + TO_NUMBER(TO_CHAR(SYSDATE, 'DDD'))) AND (LWTDAY < ((TO_NUMBER(TO_CHAR(SYSDATE, 'HH24')) -1 ) * 10000 + TO_NUMBER(TO_CHAR(SYSDATE, 'MI')) * 100  + TO_NUMBER(TO_CHAR(SYSDATE, 'SS'))) ) )) THEN 1 WHEN (TO_NUMBER(TO_CHAR(SYSDATE, 'HH24'))) < 1 AND (LWUPMJ < ((1000*(TO_NUMBER(TO_CHAR(SYSDATE, 'YYYY'))-1900) + TO_NUMBER(TO_CHAR(SYSDATE, 'DDD'))) - 1) OR ( (LWUPMJ = (1000*(TO_NUMBER(TO_CHAR(SYSDATE, 'YYYY'))-1900) + TO_NUMBER(TO_CHAR(SYSDATE, 'DDD'))) - 1) AND LWTDAY <= (230000 + TO_NUMBER(TO_CHAR(SYSDATE, 'MI')) * 60 + TO_NUMBER(TO_CHAR(SYSDATE, 'SS'))) ) ) THEN 1 ELSE 0 END) = 1 ) s]]>
+            <![CDATA[select 'JDE Distribution sensor: Orphaned Records in F41021 Transaction Workfile (F41021WF)' sensor, to_timestamp(to_char(sysdate, 'YYYY-MM-DD hh24:mi:ss'), 'YYYY-MM-DD hh24:mi:ss') entrytime, 'Orphaned_Records_F41021WF:' || s.Orphaned_Records_F41021WF key_data FROM (SELECT COUNT(*) Orphaned_Records_F41021WF FROM {business_data_schema}.F41021WF WHERE (CASE WHEN TO_NUMBER(TO_CHAR(SYSDATE, 'HH24')) >= 1 AND ((LWUPMJ < (1000*(TO_NUMBER(TO_CHAR(SYSDATE, 'YYYY'))-1900) + TO_NUMBER(TO_CHAR(SYSDATE, 'DDD')))) OR (LWUPMJ = (1000*(TO_NUMBER(TO_CHAR(SYSDATE, 'YYYY'))-1900) + TO_NUMBER(TO_CHAR(SYSDATE, 'DDD'))) AND (LWTDAY < ((TO_NUMBER(TO_CHAR(SYSDATE, 'HH24')) -1 ) * 10000 + TO_NUMBER(TO_CHAR(SYSDATE, 'MI')) * 100  + TO_NUMBER(TO_CHAR(SYSDATE, 'SS'))) ) )) THEN 1 WHEN (TO_NUMBER(TO_CHAR(SYSDATE, 'HH24'))) < 1 AND (LWUPMJ < ((1000*(TO_NUMBER(TO_CHAR(SYSDATE, 'YYYY'))-1900) + TO_NUMBER(TO_CHAR(SYSDATE, 'DDD'))) - 1) OR ( (LWUPMJ = (1000*(TO_NUMBER(TO_CHAR(SYSDATE, 'YYYY'))-1900) + TO_NUMBER(TO_CHAR(SYSDATE, 'DDD'))) - 1) AND LWTDAY <= (230000 + TO_NUMBER(TO_CHAR(SYSDATE, 'MI')) * 60 + TO_NUMBER(TO_CHAR(SYSDATE, 'SS'))) ) ) THEN 1 ELSE 0 END) = 1 ) s]]>
         </SQLQuery>
         <IsInclude>1</IsInclude>
             <InUse>1</InUse>
@@ -81,6 +81,6 @@
             <Name>udfs1</Name>
             <DisplayName>sensor</DisplayName>
         </FieldNameMap>
-
+        
     </FieldNameMaps>
 </LoganContent>

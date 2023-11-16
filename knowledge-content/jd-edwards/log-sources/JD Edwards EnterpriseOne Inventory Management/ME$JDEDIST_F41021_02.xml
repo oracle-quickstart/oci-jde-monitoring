@@ -18,7 +18,7 @@
         <MultiValued>0</MultiValued>
         <SMAEnabledSetting>0</SMAEnabledSetting>
     </Field>
-
+    
     <Tag>
 <Name>#medium_severity_sensor</Name>
 <DisplayName>Medium Severity Sensor</DisplayName>
@@ -38,7 +38,7 @@
     <Patterns>
         <DBPattern dateTimeField="entrytime" dateTimeColumns="entrytime">
         <SQLQuery>
-            <![CDATA[select 'JDE Distribution sensor: Item Location (F41021) populated with Negative On Hand (PQOH)' sensor, to_timestamp(to_char(sysdate, 'YYYY-MM-DD hh24:mi:ss'), 'YYYY-MM-DD hh24:mi:ss') entrytime, 'Negative_on_Hand_F41021:' || s.Negative_on_Hand_F41021 key_data FROM (SELECT COUNT(*) Negative_on_Hand_F41021 FROM CRPDTA.F41021 WHERE LIPQOH < 0) s]]>
+            <![CDATA[select 'JDE Distribution sensor: Item Location (F41021) populated with Negative On Hand (PQOH)' sensor, to_timestamp(to_char(sysdate, 'YYYY-MM-DD hh24:mi:ss'), 'YYYY-MM-DD hh24:mi:ss') entrytime, 'Negative_on_Hand_F41021:' || s.Negative_on_Hand_F41021 key_data FROM (SELECT COUNT(*) Negative_on_Hand_F41021 FROM {business_data_schema}.F41021 WHERE LIPQOH < 0) s]]>
         </SQLQuery>
         <IsInclude>1</IsInclude>
             <InUse>1</InUse>
@@ -81,6 +81,6 @@
             <Name>udfs1</Name>
             <DisplayName>sensor</DisplayName>
         </FieldNameMap>
-
+        
     </FieldNameMaps>
 </LoganContent>

@@ -18,7 +18,7 @@
         <MultiValued>0</MultiValued>
         <SMAEnabledSetting>0</SMAEnabledSetting>
     </Field>
-
+    
     <Tag>
 <Name>#medium_severity_sensor</Name>
 <DisplayName>Medium Severity Sensor</DisplayName>
@@ -38,7 +38,7 @@
     <Patterns>
         <DBPattern dateTimeField="entrytime" dateTimeColumns="entrytime">
         <SQLQuery>
-            <![CDATA[select 'JDE Financial sensor: Stuck Non-Purchasing Voucher Batches in F0411' sensor, to_timestamp(to_char(sysdate, 'YYYY-MM-DD hh24:mi:ss'), 'YYYY-MM-DD hh24:mi:ss') entrytime, 'F0411_Stuck_NonPurch_Vouchers_Batches:' || s.F0411_Stuck_NonPurch_Vouchers_Batches key_data FROM (SELECT COUNT(*) AS F0411_Stuck_NonPurch_Vouchers_Batches FROM CRPDTA.F0411 WHERE RPPOST LIKE 'P' AND RPRP3 NOT IN ('M', 'L') AND 1000*(TO_NUMBER(TO_CHAR(SYSDATE, 'YYYY'))-1900)+TO_NUMBER(TO_CHAR(SYSDATE, 'DDD'))-RPUPMJ>0) s]]>
+            <![CDATA[select 'JDE Financial sensor: Stuck Non-Purchasing Voucher Batches in F0411' sensor, to_timestamp(to_char(sysdate, 'YYYY-MM-DD hh24:mi:ss'), 'YYYY-MM-DD hh24:mi:ss') entrytime, 'F0411_Stuck_NonPurch_Vouchers_Batches:' || s.F0411_Stuck_NonPurch_Vouchers_Batches key_data FROM (SELECT COUNT(*) AS F0411_Stuck_NonPurch_Vouchers_Batches FROM {business_data_schema}.F0411 WHERE RPPOST LIKE 'P' AND RPRP3 NOT IN ('M', 'L') AND 1000*(TO_NUMBER(TO_CHAR(SYSDATE, 'YYYY'))-1900)+TO_NUMBER(TO_CHAR(SYSDATE, 'DDD'))-RPUPMJ>0) s]]>
         </SQLQuery>
         <IsInclude>1</IsInclude>
             <InUse>1</InUse>
@@ -81,6 +81,6 @@
             <Name>udfs1</Name>
             <DisplayName>sensor</DisplayName>
         </FieldNameMap>
-
+        
     </FieldNameMaps>
 </LoganContent>

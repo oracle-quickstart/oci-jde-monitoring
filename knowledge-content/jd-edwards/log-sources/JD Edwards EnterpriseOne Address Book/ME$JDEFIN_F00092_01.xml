@@ -18,7 +18,7 @@
         <MultiValued>0</MultiValued>
         <SMAEnabledSetting>0</SMAEnabledSetting>
     </Field>
-
+    
     <Tag>
 <Name>#medium_severity_sensor</Name>
 <DisplayName>Medium Severity Sensor</DisplayName>
@@ -38,7 +38,7 @@
     <Patterns>
         <DBPattern dateTimeField="entrytime" dateTimeColumns="entrytime">
         <SQLQuery>
-            <![CDATA[select 'JDE Financial sensor: Corrupt non-existent Unique Next Number for F00092' sensor, to_timestamp(to_char(sysdate, 'YYYY-MM-DD hh24:mi:ss'), 'YYYY-MM-DD hh24:mi:ss') entrytime, 'Corrupt_Unique_Key_F00092:' || s.Corrupt_Unique_Key_F00092 key_data FROM (SELECT COUNT(*) AS Corrupt_Unique_Key_F00092 FROM CRPDTA.F00022 WHERE UKOBNM='F00092  ' AND UKUKID<=(SELECT MAX(T3UKID) FROM CRPDTA.F00092)) s]]>
+            <![CDATA[select 'JDE Financial sensor: Corrupt non-existent Unique Next Number for F00092' sensor, to_timestamp(to_char(sysdate, 'YYYY-MM-DD hh24:mi:ss'), 'YYYY-MM-DD hh24:mi:ss') entrytime, 'Corrupt_Unique_Key_F00092:' || s.Corrupt_Unique_Key_F00092 key_data FROM (SELECT COUNT(*) AS Corrupt_Unique_Key_F00092 FROM {business_data_schema}.F00022 WHERE UKOBNM='F00092  ' AND UKUKID<=(SELECT MAX(T3UKID) FROM {business_data_schema}.F00092)) s]]>
         </SQLQuery>
         <IsInclude>1</IsInclude>
             <InUse>1</InUse>
@@ -81,6 +81,6 @@
             <Name>udfs1</Name>
             <DisplayName>sensor</DisplayName>
         </FieldNameMap>
-
+        
     </FieldNameMaps>
 </LoganContent>

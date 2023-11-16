@@ -18,7 +18,7 @@
         <MultiValued>0</MultiValued>
         <SMAEnabledSetting>0</SMAEnabledSetting>
     </Field>
-
+    
     <Tag>
 <Name>#medium_severity_sensor</Name>
 <DisplayName>Medium Severity Sensor</DisplayName>
@@ -38,7 +38,7 @@
     <Patterns>
         <DBPattern dateTimeField="entrytime" dateTimeColumns="entrytime">
         <SQLQuery>
-            <![CDATA[select 'JDE Financial sensor: Performance impact - Size of F0911Z1 Z table' sensor, to_timestamp(to_char(sysdate, 'YYYY-MM-DD hh24:mi:ss'), 'YYYY-MM-DD hh24:mi:ss') entrytime, 'NumRecords:' || s.NumRecords key_data FROM (SELECT COUNT(*) NumRecords FROM CRPDTA.F0911Z1) s]]>
+            <![CDATA[select 'JDE Financial sensor: Performance impact - Size of F0911Z1 Z table' sensor, to_timestamp(to_char(sysdate, 'YYYY-MM-DD hh24:mi:ss'), 'YYYY-MM-DD hh24:mi:ss') entrytime, 'NumRecords:' || s.NumRecords key_data FROM (SELECT COUNT(*) NumRecords FROM {business_data_schema}.F0911Z1) s]]>
         </SQLQuery>
         <IsInclude>1</IsInclude>
             <InUse>1</InUse>
@@ -81,6 +81,6 @@
             <Name>udfs1</Name>
             <DisplayName>sensor</DisplayName>
         </FieldNameMap>
-
+        
     </FieldNameMaps>
 </LoganContent>

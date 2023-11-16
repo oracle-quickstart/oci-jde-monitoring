@@ -176,8 +176,8 @@ module "logan_sources" {
   source = "./modules/logan_sources"
   auth_type = var.auth_type
   config_file_profile = var.config_file_profile
-  namespace = local.namespace
   compartment_id = var.resource_compartment
+  schemas = tomap({"server_map_schema" = "${var.server_map_schema}", "system_schema" = "${var.system_schema}", "business_data_schema" = "${var.business_data_schema}", "control_tables_schema" = "${var.control_tables_schema}"})
   for_each = toset(split(",", var.products))
       path = format("%s/%s", "${local.kc_path}/log-sources", each.value)
 }

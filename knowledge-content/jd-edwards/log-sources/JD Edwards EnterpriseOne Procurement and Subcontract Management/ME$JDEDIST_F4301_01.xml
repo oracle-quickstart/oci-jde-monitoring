@@ -18,7 +18,7 @@
         <MultiValued>0</MultiValued>
         <SMAEnabledSetting>0</SMAEnabledSetting>
     </Field>
-
+    
     <Tag>
 <Name>#medium_severity_sensor</Name>
 <DisplayName>Medium Severity Sensor</DisplayName>
@@ -38,7 +38,7 @@
     <Patterns>
         <DBPattern dateTimeField="entrytime" dateTimeColumns="entrytime">
         <SQLQuery>
-            <![CDATA[select 'JDE Distribution sensor: F4301 - Missing header details' sensor, to_timestamp(to_char(sysdate, 'YYYY-MM-DD hh24:mi:ss'), 'YYYY-MM-DD hh24:mi:ss') entrytime, 'F4301_Missing_header:' || s.F4301_Missing_header key_data FROM (SELECT SUM(NoRecords) AS F4301_Missing_header FROM(SELECT COUNT(*) NoRecords FROM CRPDTA.F4311 WHERE PDDOCO NOT IN (SELECT PHDOCO FROM CRPDTA.F4301)UNION SELECT COUNT(*) NoRecords FROM CRPDTA.F4301 WHERE PHDOCO NOT IN (SELECT PDDOCO FROM CRPDTA.F4311)) Integrity_F4301) s]]>
+            <![CDATA[select 'JDE Distribution sensor: F4301 - Missing header details' sensor, to_timestamp(to_char(sysdate, 'YYYY-MM-DD hh24:mi:ss'), 'YYYY-MM-DD hh24:mi:ss') entrytime, 'F4301_Missing_header:' || s.F4301_Missing_header key_data FROM (SELECT SUM(NoRecords) AS F4301_Missing_header FROM(SELECT COUNT(*) NoRecords FROM {business_data_schema}.F4311 WHERE PDDOCO NOT IN (SELECT PHDOCO FROM {business_data_schema}.F4301)UNION SELECT COUNT(*) NoRecords FROM {business_data_schema}.F4301 WHERE PHDOCO NOT IN (SELECT PDDOCO FROM {business_data_schema}.F4311)) Integrity_F4301) s]]>
         </SQLQuery>
         <IsInclude>1</IsInclude>
             <InUse>1</InUse>
@@ -81,6 +81,6 @@
             <Name>udfs1</Name>
             <DisplayName>sensor</DisplayName>
         </FieldNameMap>
-
+        
     </FieldNameMaps>
 </LoganContent>

@@ -107,6 +107,30 @@ variable "la_entity_name" {
   description = "The JDE Entity Name."
 }
 
+variable "server_map_schema" {
+  type        = string
+  default     = "SVM920"
+  description = "Server Map Schema Name."
+}
+
+variable "system_schema" {
+  type        = string
+  default     = "SY920"
+  description = "System Schema Name."
+}
+
+variable "business_data_schema" {
+  type        = string
+  default     = "TESTDTA"
+  description = "Business Data Schema Name."
+}
+
+variable "control_tables_schema" {
+  type        = string
+  default     = "TESTCTL"
+  description = "Control Tables Schema Name."
+}
+
 variable "bucket_name" {
   type        = string
 }

@@ -18,7 +18,7 @@
         <MultiValued>0</MultiValued>
         <SMAEnabledSetting>0</SMAEnabledSetting>
     </Field>
-
+    
     <Tag>
 <Name>#medium_severity_sensor</Name>
 <DisplayName>Medium Severity Sensor</DisplayName>
@@ -38,7 +38,7 @@
     <Patterns>
         <DBPattern dateTimeField="entrytime" dateTimeColumns="entrytime">
         <SQLQuery>
-            <![CDATA[select 'JDE Financial sensor: Number of AR Trade Accounts with blank Post Edit Code' sensor, to_timestamp(to_char(sysdate, 'YYYY-MM-DD hh24:mi:ss'), 'YYYY-MM-DD hh24:mi:ss') entrytime, 'AR_Trade_Accnts_w_blank_PEC:' || s.AR_Trade_Accnts_w_blank_PEC key_data FROM (SELECT COUNT(*) AS AR_Trade_Accnts_w_blank_PEC FROM CRPDTA.F0901 WHERE TRIM(GMPEC) IS NULL AND GMMCU||'|'||GMOBJ||'|'||GMSUB IN (SELECT KGMCU||'|'||KGOBJ||'|'||KGSUB FROM CRPDTA.F0012 WHERE TRIM(KGITEM) LIKE 'RC%')) s]]>
+            <![CDATA[select 'JDE Financial sensor: Number of AR Trade Accounts with blank Post Edit Code' sensor, to_timestamp(to_char(sysdate, 'YYYY-MM-DD hh24:mi:ss'), 'YYYY-MM-DD hh24:mi:ss') entrytime, 'AR_Trade_Accnts_w_blank_PEC:' || s.AR_Trade_Accnts_w_blank_PEC key_data FROM (SELECT COUNT(*) AS AR_Trade_Accnts_w_blank_PEC FROM {business_data_schema}.F0901 WHERE TRIM(GMPEC) IS NULL AND GMMCU||'|'||GMOBJ||'|'||GMSUB IN (SELECT KGMCU||'|'||KGOBJ||'|'||KGSUB FROM {business_data_schema}.F0012 WHERE TRIM(KGITEM) LIKE 'RC%')) s]]>
         </SQLQuery>
         <IsInclude>1</IsInclude>
             <InUse>1</InUse>
@@ -81,6 +81,6 @@
             <Name>udfs1</Name>
             <DisplayName>sensor</DisplayName>
         </FieldNameMap>
-
+        
     </FieldNameMaps>
 </LoganContent>

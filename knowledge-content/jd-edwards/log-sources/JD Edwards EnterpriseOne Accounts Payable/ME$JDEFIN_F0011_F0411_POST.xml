@@ -18,7 +18,7 @@
         <MultiValued>0</MultiValued>
         <SMAEnabledSetting>0</SMAEnabledSetting>
     </Field>
-
+    
     <Tag>
 <Name>#medium_severity_sensor</Name>
 <DisplayName>Medium Severity Sensor</DisplayName>
@@ -38,7 +38,7 @@
     <Patterns>
         <DBPattern dateTimeField="entrytime" dateTimeColumns="entrytime">
         <SQLQuery>
-            <![CDATA[select 'JDE Financial sensor: Voucher Post Code Mismatch Between F0411 and F0011' sensor, to_timestamp(to_char(sysdate, 'YYYY-MM-DD hh24:mi:ss'), 'YYYY-MM-DD hh24:mi:ss') entrytime, 'NumRecords:' || s.NumRecords key_data FROM (SELECT COUNT(DISTINCT (CONCAT(RPICU, RPICUT))) NumRecords from CRPDTA.F0411, CRPDTA.F0011 WHERE RPICU=ICICU AND RPICUT=ICICUT   AND ((RPPOST='D' AND ICIST<>'D' AND (SELECT COUNT(*) FROM CRPDTA.F0411 WHERE RPICU=F0011.ICICU AND RPPOST<>'D')=0)   OR (RPPOST<>'D' AND ICIST='D')) AND RPUPMJ < (select (to_char ( sysdate,'YYYY')-1900)*1000 +to_char ( sysdate,'DDD') from dual) ORDER BY RPICU, RPICUT) s]]>
+            <![CDATA[select 'JDE Financial sensor: Voucher Post Code Mismatch Between F0411 and F0011' sensor, to_timestamp(to_char(sysdate, 'YYYY-MM-DD hh24:mi:ss'), 'YYYY-MM-DD hh24:mi:ss') entrytime, 'NumRecords:' || s.NumRecords key_data FROM (SELECT COUNT(DISTINCT (CONCAT(RPICU, RPICUT))) NumRecords from {business_data_schema}.F0411, {business_data_schema}.F0011 WHERE RPICU=ICICU AND RPICUT=ICICUT   AND ((RPPOST='D' AND ICIST<>'D' AND (SELECT COUNT(*) FROM {business_data_schema}.F0411 WHERE RPICU=F0011.ICICU AND RPPOST<>'D')=0)   OR (RPPOST<>'D' AND ICIST='D')) AND RPUPMJ < (select (to_char ( sysdate,'YYYY')-1900)*1000 +to_char ( sysdate,'DDD') from dual) ORDER BY RPICU, RPICUT) s]]>
         </SQLQuery>
         <IsInclude>1</IsInclude>
             <InUse>1</InUse>
@@ -81,6 +81,6 @@
             <Name>udfs1</Name>
             <DisplayName>sensor</DisplayName>
         </FieldNameMap>
-
+        
     </FieldNameMaps>
 </LoganContent>

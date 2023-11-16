@@ -18,7 +18,7 @@
         <MultiValued>0</MultiValued>
         <SMAEnabledSetting>0</SMAEnabledSetting>
     </Field>
-
+    
     <Tag>
 <Name>#medium_severity_sensor</Name>
 <DisplayName>Medium Severity Sensor</DisplayName>
@@ -38,7 +38,7 @@
     <Patterns>
         <DBPattern dateTimeField="entrytime" dateTimeColumns="entrytime">
         <SQLQuery>
-            <![CDATA[select 'JDE Financial sensor: CREDLIMIT Workflow - unprocessed activity instances' sensor, to_timestamp(to_char(sysdate, 'YYYY-MM-DD hh24:mi:ss'), 'YYYY-MM-DD hh24:mi:ss') entrytime, 'Stuck_CREDLIMIT_Tasks:' || s.Stuck_CREDLIMIT_Tasks key_data FROM (SELECT COUNT(*) AS Stuck_CREDLIMIT_Tasks FROM (SELECT PIPROCNAME FROM CRPCTL.F98860 WHERE PIPROCSTS IN ('04', '05', '06') AND PIPROCNAME='CREDLIMIT')) s]]>
+            <![CDATA[select 'JDE Financial sensor: CREDLIMIT Workflow - unprocessed activity instances' sensor, to_timestamp(to_char(sysdate, 'YYYY-MM-DD hh24:mi:ss'), 'YYYY-MM-DD hh24:mi:ss') entrytime, 'Stuck_CREDLIMIT_Tasks:' || s.Stuck_CREDLIMIT_Tasks key_data FROM (SELECT COUNT(*) AS Stuck_CREDLIMIT_Tasks FROM (SELECT PIPROCNAME FROM {control_tables_schema}.F98860 WHERE PIPROCSTS IN ('04', '05', '06') AND PIPROCNAME='CREDLIMIT')) s]]>
         </SQLQuery>
         <IsInclude>1</IsInclude>
             <InUse>1</InUse>
@@ -81,6 +81,6 @@
             <Name>udfs1</Name>
             <DisplayName>sensor</DisplayName>
         </FieldNameMap>
-
+        
     </FieldNameMaps>
 </LoganContent>

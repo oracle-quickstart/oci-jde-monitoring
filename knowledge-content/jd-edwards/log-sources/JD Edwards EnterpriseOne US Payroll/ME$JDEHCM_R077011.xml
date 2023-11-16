@@ -18,7 +18,7 @@
         <MultiValued>0</MultiValued>
         <SMAEnabledSetting>0</SMAEnabledSetting>
     </Field>
-
+    
     <Tag>
 <Name>#low_severity_sensor</Name>
 <DisplayName>Low Severity Sensor</DisplayName>
@@ -38,7 +38,7 @@
     <Patterns>
         <DBPattern dateTimeField="entrytime" dateTimeColumns="entrytime">
         <SQLQuery>
-            <![CDATA[select 'JDE HCM sensor: Data Integrity monitor and prevention (R077011)' sensor, to_timestamp(to_char(sysdate, 'YYYY-MM-DD hh24:mi:ss'), 'YYYY-MM-DD hh24:mi:ss') entrytime, 'NO_R077011_RUNS:' || s.NO_R077011_RUNS key_data FROM (SELECT COUNT(*) AS NO_R077011_RUNS FROM (SELECT JCSBMDATE, JCJOBSTS FROM SVM920.F986110 WHERE JCJOBSTS='D' AND SUBSTR(JCFNDFUF2,1,INSTR(JCFNDFUF2,'_')-1)='R077011' AND JCSBMDATE>=1000*(TO_NUMBER(TO_CHAR(SYSDATE - INTERVAL '1' MONTH, 'YYYY'))-1900) + TO_NUMBER(TO_CHAR(SYSDATE - INTERVAL '1' MONTH, 'DDD')))) s]]>
+            <![CDATA[select 'JDE HCM sensor: Data Integrity monitor and prevention (R077011)' sensor, to_timestamp(to_char(sysdate, 'YYYY-MM-DD hh24:mi:ss'), 'YYYY-MM-DD hh24:mi:ss') entrytime, 'NO_R077011_RUNS:' || s.NO_R077011_RUNS key_data FROM (SELECT COUNT(*) AS NO_R077011_RUNS FROM (SELECT JCSBMDATE, JCJOBSTS FROM {server_map_schema}.F986110 WHERE JCJOBSTS='D' AND SUBSTR(JCFNDFUF2,1,INSTR(JCFNDFUF2,'_')-1)='R077011' AND JCSBMDATE>=1000*(TO_NUMBER(TO_CHAR(SYSDATE - INTERVAL '1' MONTH, 'YYYY'))-1900) + TO_NUMBER(TO_CHAR(SYSDATE - INTERVAL '1' MONTH, 'DDD')))) s]]>
         </SQLQuery>
         <IsInclude>1</IsInclude>
             <InUse>1</InUse>
@@ -81,6 +81,6 @@
             <Name>udfs1</Name>
             <DisplayName>sensor</DisplayName>
         </FieldNameMap>
-
+        
     </FieldNameMaps>
 </LoganContent>

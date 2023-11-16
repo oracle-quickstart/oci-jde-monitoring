@@ -244,6 +244,34 @@ variables:
     required: true
     default: "JDE-DB"
 
+  server_map_schema:
+    type: string
+    title: "Enity Server Map Schema"
+    description: "Entity's Server Map Schema property value"
+    required: true
+    default: "schema1"
+
+  system_schema:
+    type: string
+    title: "Enity System Schema"
+    description: "Entity's System Schema property value"
+    required: true
+    default: "schema2"
+
+  business_data_schema:
+    type: string
+    title: "Enity Business Data Schema"
+    description: "Entity's Business Data Schema property value"
+    required: true
+    default: "schema3"
+
+  control_tables_schema:
+    type: string
+    title: "Enity Control Tables Schema Name"
+    description: "Entity's Control Tables Schema property value"
+    required: true
+    default: "schema4"
+
   bucket_name:
     type: string
     title: "Object Storage Bucket Name"

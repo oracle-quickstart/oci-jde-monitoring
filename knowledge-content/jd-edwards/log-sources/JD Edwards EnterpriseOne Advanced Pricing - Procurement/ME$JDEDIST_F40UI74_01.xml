@@ -18,7 +18,7 @@
         <MultiValued>0</MultiValued>
         <SMAEnabledSetting>0</SMAEnabledSetting>
     </Field>
-
+    
     <Tag>
 <Name>#medium_severity_sensor</Name>
 <DisplayName>Medium Severity Sensor</DisplayName>
@@ -38,7 +38,7 @@
     <Patterns>
         <DBPattern dateTimeField="entrytime" dateTimeColumns="entrytime">
         <SQLQuery>
-            <![CDATA[select 'JDE Distribution sensor: Orphaned Records in F40UI74' sensor, to_timestamp(to_char(sysdate, 'YYYY-MM-DD hh24:mi:ss'), 'YYYY-MM-DD hh24:mi:ss') entrytime, 'F40UI74_Orphaned_Records:' || s.F40UI74_Orphaned_Records key_data FROM (SELECT COUNT(*) F40UI74_Orphaned_Records FROM (SELECT AWDOCO FROM CRPDTA.F40UI74 WHERE AWDOCO NOT IN (SELECT SUBSTR(A1GENKEY,1,LENGTH(TRIM(AWDOCO))) FROM CRPDTA.F00095))  ) s]]>
+            <![CDATA[select 'JDE Distribution sensor: Orphaned Records in F40UI74' sensor, to_timestamp(to_char(sysdate, 'YYYY-MM-DD hh24:mi:ss'), 'YYYY-MM-DD hh24:mi:ss') entrytime, 'F40UI74_Orphaned_Records:' || s.F40UI74_Orphaned_Records key_data FROM (SELECT COUNT(*) F40UI74_Orphaned_Records FROM (SELECT AWDOCO FROM {business_data_schema}.F40UI74 WHERE AWDOCO NOT IN (SELECT SUBSTR(A1GENKEY,1,LENGTH(TRIM(AWDOCO))) FROM {business_data_schema}.F00095))  ) s]]>
         </SQLQuery>
         <IsInclude>1</IsInclude>
             <InUse>1</InUse>
@@ -81,6 +81,6 @@
             <Name>udfs1</Name>
             <DisplayName>sensor</DisplayName>
         </FieldNameMap>
-
+        
     </FieldNameMaps>
 </LoganContent>

@@ -18,7 +18,7 @@
         <MultiValued>0</MultiValued>
         <SMAEnabledSetting>0</SMAEnabledSetting>
     </Field>
-
+    
     <Tag>
 <Name>#medium_severity_sensor</Name>
 <DisplayName>Medium Severity Sensor</DisplayName>
@@ -38,7 +38,7 @@
     <Patterns>
         <DBPattern dateTimeField="entrytime" dateTimeColumns="entrytime">
         <SQLQuery>
-            <![CDATA[select 'JDE Distribution sensor: Duplicate NLIN in F43121' sensor, to_timestamp(to_char(sysdate, 'YYYY-MM-DD hh24:mi:ss'), 'YYYY-MM-DD hh24:mi:ss') entrytime, 'F43121_Duplicate_NLIN:' || s.F43121_Duplicate_NLIN key_data FROM (SELECT COUNT(*) F43121_Duplicate_NLIN FROM (SELECT PRDOCO, PRLNID, PRNLIN, PRMATC, PRDCTO, PRCO FROM CRPDTA.F43121 WHERE PRMATC=1 GROUP BY PRLNID, PRNLIN, PRCO, PRDOCO, PRDCTO, PRMATC HAVING COUNT(PRLNID||'|'||PRNLIN||'|'||PRCO||'|'||PRDOCO||'|'||PRDCTO||'|'||PRMATC)>1)  ) s]]>
+            <![CDATA[select 'JDE Distribution sensor: Duplicate NLIN in F43121' sensor, to_timestamp(to_char(sysdate, 'YYYY-MM-DD hh24:mi:ss'), 'YYYY-MM-DD hh24:mi:ss') entrytime, 'F43121_Duplicate_NLIN:' || s.F43121_Duplicate_NLIN key_data FROM (SELECT COUNT(*) F43121_Duplicate_NLIN FROM (SELECT PRDOCO, PRLNID, PRNLIN, PRMATC, PRDCTO, PRCO FROM {business_data_schema}.F43121 WHERE PRMATC=1 GROUP BY PRLNID, PRNLIN, PRCO, PRDOCO, PRDCTO, PRMATC HAVING COUNT(PRLNID||'|'||PRNLIN||'|'||PRCO||'|'||PRDOCO||'|'||PRDCTO||'|'||PRMATC)>1)  ) s]]>
         </SQLQuery>
         <IsInclude>1</IsInclude>
             <InUse>1</InUse>
@@ -81,6 +81,6 @@
             <Name>udfs1</Name>
             <DisplayName>sensor</DisplayName>
         </FieldNameMap>
-
+        
     </FieldNameMaps>
 </LoganContent>

@@ -20,25 +20,25 @@
     </Field>
     
     <Tag>
-<Name>#medium_severity_sensor</Name>
-<DisplayName>Medium Severity Sensor</DisplayName>
+<Name>#low_severity_sensor</Name>
+<DisplayName>Low Severity Sensor</DisplayName>
 <IsSystem>0</IsSystem>
-<ProblemPriority>MEDIUM</ProblemPriority>
+<ProblemPriority>LOW</ProblemPriority>
 </Tag>
-    <Source name="JDE Financial sensor: Corrupted records in F0902 due currency code change" oms_version="2.50.2.0.0" configWarningSettings="0">
+    <Source name="JDE Tools sensor: Create SR Test - PLEASE IGNORE" oms_version="2.50.2.0.0" configWarningSettings="0">
     <SourceType>database_sql</SourceType>
     <TargetTypes>
         <TargetType>omc_oracle_db_instance</TargetType>
         <TargetType>omc_oracle_pdb</TargetType>
     </TargetTypes>
-    <DisplayName>JDE Financial sensor: Corrupted records in F0902 due currency code change</DisplayName>
-    <Description><![CDATA[There are corrupted records in F0902 due currency code change]]></Description>
+    <DisplayName>JDE Tools sensor: Create SR Test - PLEASE IGNORE</DisplayName>
+    <Description><![CDATA[Created to verify that the service works properly, creating an SR with a collection from database.]]></Description>
     <IsSystem>0</IsSystem>
     <IsSecureContent>1</IsSecureContent>
     <Patterns>
         <DBPattern dateTimeField="entrytime" dateTimeColumns="entrytime">
         <SQLQuery>
-            <![CDATA[select 'JDE Financial sensor: Corrupted records in F0902 due currency code change' sensor, to_timestamp(to_char(sysdate, 'YYYY-MM-DD hh24:mi:ss'), 'YYYY-MM-DD hh24:mi:ss') entrytime, 'NO_OF_F0902_CORRUPTION:' || s.NO_OF_F0902_CORRUPTION key_data FROM (SELECT COUNT(*) NO_OF_F0902_CORRUPTION FROM (SELECT TRIM(GBAID)||'|'||TO_CHAR(GBCTRY*100+GBFY)||'|'||TRIM(GBLT)||'|'||TRIM(GBSBL)||'|'||TRIM(GBSBLT) AS KEY, GBAID, GBCTRY, GBFY, GBCTRY*100+GBFY AS YEAR, GBLT, GBSBL, GBSBLT, GBCRCD FROM {business_data_schema}.F0902 WHERE TRIM(GBCRCD)IS NULL AND TRIM(GBAID)||'|'||TO_CHAR(GBCTRY*100+GBFY)||'|'||TRIM(GBLT)||'|'||TRIM(GBSBL)||'|'||TRIM(GBSBLT) IN (SELECT TRIM(GBAID)||'|'||TO_CHAR(GBCTRY*100+GBFY)||'|'||TRIM(GBLT)||'|'||TRIM(GBSBL)||'|'||TRIM(GBSBLT) AS KEY FROM {business_data_schema}.F0902 WHERE TRIM(GBCRCD)IS NOT NULL))) s]]>
+            <![CDATA[select 'JDE Tools sensor: Create SR Test - PLEASE IGNORE' sensor, to_timestamp(to_char(sysdate, 'YYYY-MM-DD hh24:mi:ss'), 'YYYY-MM-DD hh24:mi:ss') entrytime, 'NUM_ROWS:' || s.NUM_ROWS key_data FROM (SELECT count(*) as NO_ROWS FROM {business_data_schema}.F0101) s]]>
         </SQLQuery>
         <IsInclude>1</IsInclude>
             <InUse>1</InUse>
@@ -67,7 +67,7 @@
                     <ConditionValue>%</ConditionValue>
                 </ConditionValues>
                 <ConditionTags tagField="mtag">
-                    <ConditionTag>#medium_severity_sensor</ConditionTag>
+                    <ConditionTag>#low_severity_sensor</ConditionTag>
                 </ConditionTags>
                 <IsSystem>0</IsSystem>
                 <IsEnabled>1</IsEnabled>

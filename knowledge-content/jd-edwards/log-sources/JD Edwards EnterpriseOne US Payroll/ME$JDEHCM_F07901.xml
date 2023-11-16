@@ -18,7 +18,7 @@
         <MultiValued>0</MultiValued>
         <SMAEnabledSetting>0</SMAEnabledSetting>
     </Field>
-
+    
     <Tag>
 <Name>#medium_severity_sensor</Name>
 <DisplayName>Medium Severity Sensor</DisplayName>
@@ -38,7 +38,7 @@
     <Patterns>
         <DBPattern dateTimeField="entrytime" dateTimeColumns="entrytime">
         <SQLQuery>
-            <![CDATA[select 'JDE HCM sensor: F07901 Not Current' sensor, to_timestamp(to_char(sysdate, 'YYYY-MM-DD hh24:mi:ss'), 'YYYY-MM-DD hh24:mi:ss') entrytime, 'FEW_REC_F07901:' || s.FEW_REC_F07901 key_data FROM (SELECT COUNT(*) AS FEW_REC_F07901 FROM (SELECT CASE WHEN (SELECT COUNT(*) AS FROM CRPDTA.F07901) < 1608 THEN 'Few records in F07901' ELSE 'OK' END AS F07901_STATUS FROM DUAL) WHERE F07901_STATUS LIKE 'Few%') s]]>
+            <![CDATA[select 'JDE HCM sensor: F07901 Not Current' sensor, to_timestamp(to_char(sysdate, 'YYYY-MM-DD hh24:mi:ss'), 'YYYY-MM-DD hh24:mi:ss') entrytime, 'FEW_REC_F07901:' || s.FEW_REC_F07901 key_data FROM (SELECT COUNT(*) AS FEW_REC_F07901 FROM (SELECT CASE WHEN (SELECT COUNT(*) AS FROM {business_data_schema}.F07901) < 1608 THEN 'Few records in F07901' ELSE 'OK' END AS F07901_STATUS FROM DUAL) WHERE F07901_STATUS LIKE 'Few%') s]]>
         </SQLQuery>
         <IsInclude>1</IsInclude>
             <InUse>1</InUse>
@@ -81,6 +81,6 @@
             <Name>udfs1</Name>
             <DisplayName>sensor</DisplayName>
         </FieldNameMap>
-
+        
     </FieldNameMaps>
 </LoganContent>

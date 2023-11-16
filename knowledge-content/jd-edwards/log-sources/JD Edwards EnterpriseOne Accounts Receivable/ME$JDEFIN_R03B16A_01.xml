@@ -18,7 +18,7 @@
         <MultiValued>0</MultiValued>
         <SMAEnabledSetting>0</SMAEnabledSetting>
     </Field>
-
+    
     <Tag>
 <Name>#medium_severity_sensor</Name>
 <DisplayName>Medium Severity Sensor</DisplayName>
@@ -38,7 +38,7 @@
     <Patterns>
         <DBPattern dateTimeField="entrytime" dateTimeColumns="entrytime">
         <SQLQuery>
-            <![CDATA[select 'JDE Financial sensor: R03B16A takes long time to run' sensor, to_timestamp(to_char(sysdate, 'YYYY-MM-DD hh24:mi:ss'), 'YYYY-MM-DD hh24:mi:ss') entrytime, 'R03B16A_Duration_Sec:' || s.R03B16A_Duration_Sec key_data FROM (SELECT CASE WHEN (SELECT COUNT(*) FROM SVM920.F986114 WHERE JCPID='R03B16A')>0 THEN (SELECT R03B16A_Duration_Sec FROM (SELECT JCPID,JCVERS,CASE WHEN ROUND(86400*(b.JCETDTIM-b.JCSTDTIM)) > 0 THEN ROUND(86400*(b.JCETDTIM-b.JCSTDTIM)) ELSE 0 END AS R03B16A_Duration_Sec FROM SVM920.F986110 a LEFT JOIN SVM920.F986114 b ON a.JCJOBNBR  =b.JCJOBNBR WHERE b.JCPID IN ('R03B16A') AND a.JCJOBSTS ='D' ORDER BY JCSTDTIM DESC ) WHERE ROWNUM = 1) ELSE 0 END AS R03B16A_Duration_Sec FROM DUAL) s]]>
+            <![CDATA[select 'JDE Financial sensor: R03B16A takes long time to run' sensor, to_timestamp(to_char(sysdate, 'YYYY-MM-DD hh24:mi:ss'), 'YYYY-MM-DD hh24:mi:ss') entrytime, 'R03B16A_Duration_Sec:' || s.R03B16A_Duration_Sec key_data FROM (SELECT CASE WHEN (SELECT COUNT(*) FROM {server_map_schema}.F986114 WHERE JCPID='R03B16A')>0 THEN (SELECT R03B16A_Duration_Sec FROM (SELECT JCPID,JCVERS,CASE WHEN ROUND(86400*(b.JCETDTIM-b.JCSTDTIM)) > 0 THEN ROUND(86400*(b.JCETDTIM-b.JCSTDTIM)) ELSE 0 END AS R03B16A_Duration_Sec FROM {server_map_schema}.F986110 a LEFT JOIN {server_map_schema}.F986114 b ON a.JCJOBNBR  =b.JCJOBNBR WHERE b.JCPID IN ('R03B16A') AND a.JCJOBSTS ='D' ORDER BY JCSTDTIM DESC ) WHERE ROWNUM = 1) ELSE 0 END AS R03B16A_Duration_Sec FROM DUAL) s]]>
         </SQLQuery>
         <IsInclude>1</IsInclude>
             <InUse>1</InUse>
@@ -81,6 +81,6 @@
             <Name>udfs1</Name>
             <DisplayName>sensor</DisplayName>
         </FieldNameMap>
-
+        
     </FieldNameMaps>
 </LoganContent>
