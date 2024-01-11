@@ -209,7 +209,7 @@ module "create_assoc" {
       config_file_profile = var.config_file_profile
       entity_compartment_id = var.resource_compartment
       entity_id = module.la_entity.entity_id
-      filepath = format("%s/%s", "${local.kc_path}/sources", each.value)
+      filepath = format("%s/%s", "${local.kc_path}/log-sources", each.value)
       loggroup_id = var.create_log_group? oci_log_analytics_log_analytics_log_group.test_log_group[0].id : var.log_group_ocid
 }
 

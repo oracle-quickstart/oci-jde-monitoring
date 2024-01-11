@@ -1,7 +1,7 @@
 # Copyright (c) 2022, Oracle and/or its affiliates.
 # Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl.
 
-title: "Oracle E-Buisiness Suite Log Collection Quick Start"
+title: "JD Edwards EnterpriseOne Suite Log Collection Quick Start"
 
 description: "Monitoring JDE using Management Agent"
 
@@ -95,13 +95,12 @@ variables:
     - JD Edwards EnterpriseOne Address Book
     - JD Edwards EnterpriseOne Advanced Pricing - Procurement
     - JD Edwards EnterpriseOne Advanced Pricing - Sales
-    - JD Edwards EnterpriseOne Australia Payroll
+    - JD Edwards EnterpriseOne Australia - New Zealand Payroll
     - JD Edwards EnterpriseOne Canadian Payroll
     - JD Edwards EnterpriseOne EDI
     - JD Edwards EnterpriseOne General Ledger
     - JD Edwards EnterpriseOne Inventory Foundation
     - JD Edwards EnterpriseOne Inventory Management
-    - JD Edwards EnterpriseOne New Zealand Payroll
     - JD Edwards EnterpriseOne Procurement and Subcontract Management
     - JD Edwards EnterpriseOne Product Data Management
     - JD Edwards EnterpriseOne Sales Order Management
@@ -112,7 +111,8 @@ variables:
       allowMultiple: true
       minItems: 1
       uniqueItems: true
-    default: JD Edwards EnterpriseOne Accounts Payable, JD Edwards EnterpriseOne Accounts Receivable, JD Edwards EnterpriseOne Address Book, JD Edwards EnterpriseOne Advanced Pricing - Procurement, JD Edwards EnterpriseOne Advanced Pricing - Sales, JD Edwards EnterpriseOne EDI, JD Edwards EnterpriseOne General Ledger, JD Edwards EnterpriseOne Inventory Foundation, JD Edwards EnterpriseOne Inventory Management, JD Edwards EnterpriseOne Procurement and Subcontract Management, JD Edwards EnterpriseOne Product Data Management, JD Edwards EnterpriseOne Sales Order Management, JD Edwards EnterpriseOne Shop Floor Control, JD Edwards EnterpriseOne Transportation Management
+    default: "JD Edwards EnterpriseOne Accounts Payable"
+    #default: JD Edwards EnterpriseOne Accounts Payable, JD Edwards EnterpriseOne Accounts Receivable, JD Edwards EnterpriseOne Address Book, JD Edwards EnterpriseOne Advanced Pricing - Procurement, JD Edwards EnterpriseOne Advanced Pricing - Sales, JD Edwards EnterpriseOne EDI, JD Edwards EnterpriseOne General Ledger, JD Edwards EnterpriseOne Inventory Foundation, JD Edwards EnterpriseOne Inventory Management, JD Edwards EnterpriseOne Procurement and Subcontract Management, JD Edwards EnterpriseOne Product Data Management, JD Edwards EnterpriseOne Sales Order Management, JD Edwards EnterpriseOne Shop Floor Control, JD Edwards EnterpriseOne Transportation Management
     #default: ["JD Edwards EnterpriseOne Accounts Payable", "JD Edwards EnterpriseOne Accounts Receivable", "JD Edwards EnterpriseOne Address Book", "JD Edwards EnterpriseOne Advanced Pricing - Procurement", "JD Edwards EnterpriseOne Advanced Pricing - Sales", "JD Edwards EnterpriseOne Australia Payroll", "JD Edwards EnterpriseOne Canadian Payroll", "JD Edwards EnterpriseOne EDI", "JD Edwards EnterpriseOne General Ledger", "JD Edwards EnterpriseOne Inventory Foundation", "JD Edwards EnterpriseOne Inventory Management", "JD Edwards EnterpriseOne New Zealand Payroll", "JD Edwards EnterpriseOne Procurement and Subcontract Management", "JD Edwards EnterpriseOne Product Data Management", "JD Edwards EnterpriseOne Sales Order Management", "JD Edwards EnterpriseOne Shop Floor Control", "JD Edwards EnterpriseOne Transportation Management", "JD Edwards EnterpriseOne US Payroll"]
 
   db_compartment:
@@ -249,28 +249,28 @@ variables:
     title: "Enity Server Map Schema"
     description: "Entity's Server Map Schema property value"
     required: true
-    default: "schema1"
+    default: "SVM920"
 
   system_schema:
     type: string
     title: "Enity System Schema"
     description: "Entity's System Schema property value"
     required: true
-    default: "schema2"
+    default: "SY920"
 
   business_data_schema:
     type: string
     title: "Enity Business Data Schema"
     description: "Entity's Business Data Schema property value"
     required: true
-    default: "schema3"
+    default: "TESTDTA"
 
   control_tables_schema:
     type: string
     title: "Enity Control Tables Schema Name"
     description: "Entity's Control Tables Schema property value"
     required: true
-    default: "schema4"
+    default: "TESTCTL"
 
   bucket_name:
     type: string
