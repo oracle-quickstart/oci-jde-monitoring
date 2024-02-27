@@ -1,411 +1,411 @@
 {
-	"dashboards": [
-		{
-			"dashboardId": "b2NpZDEubWFuYWdlbWVudGRhc2hib2FyZC5vYzEuLmFhYWFhYWFhN2VsYTVyNHl5djU1d3pwcnpqaGl2bXFmN2w2eGtreGc3Zmpobnd1eW5zeXd3azU3MjRtYQ==",
-			"providerId": "log-analytics",
-			"providerName": "Logging Analytics",
-			"providerVersion": "3.0.0",
-			"tiles": [
-				{
-					"displayName": "JDE Functional Issues Search",
-					"savedSearchId": "b2NpZDEubWFuYWdlbWVudHNhdmVkc2VhcmNoLm9jMS4uYWFhYWFhYWF4djI1YzNoMmFxZHZ1dml0ZTZlcHF5MnhleGhoaWR6d2t3aXZ0YzUzMm41dTNma2dsYWxh",
-					"row": 0,
-					"column": 0,
-					"height": 8,
-					"width": 12,
-					"nls": {},
-					"uiConfig": {},
-					"dataConfig": [],
-					"state": "DEFAULT",
-					"drilldownConfig": [],
-					"parametersMap": {
-						"log-analytics-log-group-compartment": "$(dashboard.params.log-analytics-loggroup-filter)",
-						"log-analytics-entity": "$(dashboard.params.log-analytics-entity-filter)",
-						"time": "$(dashboard.params.time)"
-					}
-				}
-			],
-			"displayName": "JDE Functional Issues Dashboard",
-			"description": "JDE Functional Issues Dashboard",
-			"compartmentId": "${compartment_ocid}",
-			"isOobDashboard": false,
-			"isShowInHome": false,
-			"metadataVersion": "2.0",
-			"isShowDescription": true,
-			"screenImage": "todo: provide value[mandatory]",
-			"nls": {},
-			"uiConfig": {
-				"isFilteringEnabled": false,
-				"isTimeRangeEnabled": true,
-				"isRefreshEnabled": true
-			},
-			"dataConfig": [],
-			"type": "normal",
-			"isFavorite": false,
-			"savedSearches": [
-				{
-					"id": "b2NpZDEubWFuYWdlbWVudHNhdmVkc2VhcmNoLm9jMS4uYWFhYWFhYWF4djI1YzNoMmFxZHZ1dml0ZTZlcHF5MnhleGhoaWR6d2t3aXZ0YzUzMm41dTNma2dsYWxh",
-					"displayName": "JDE Functional Issues Search",
-					"providerId": "log-analytics",
-					"providerVersion": "3.0.0",
-					"providerName": "Logging Analytics",
-					"compartmentId": "${compartment_ocid}",
-					"isOobSavedSearch": false,
-					"description": "Log Explorer search saved to show the functional JDE issues",
-					"nls": {},
-					"type": "WIDGET_SHOW_IN_DASHBOARD",
-					"uiConfig": {
-						"timeSelection": {
-							"timePeriod": "l15min"
-						},
-						"showTitle": true,
-						"visualizationType": "link",
-						"visualizationOptions": {
-							"customVizOpt": {
-								"LINK_SEARCH_SETTINGS": {
-									"showAllRegions": [],
-									"tableColumns": [
-										"High Priority",
-										"Issue",
-										"Description",
-										"Number of Issues",
-										"Business Flow",
-										"Business Impact",
-										"Product to raise SR if help needed",
-										"Prod Area",
-										"File SR",
-										"Total Issues",
-										"Product Areas",
-										"Start Time (UTC-07:00)",
-										"End Time (UTC-07:00)",
-										"Start Time (UTC+03:00)",
-										"End Time (UTC+03:00)"
-									],
-									"groupAliasS": "Group",
-									"groupAliasP": "Groups",
-									"logAliasP": "Log Records",
-									"showUnitRawData": [],
-									"showNonUnitRawData": [
-										"off"
-									],
-									"mergeHighlightColumns": [
-										"off"
-									],
-									"columnAliases": {},
-									"hiddenCharts": {
-										"groupColumn": true
-									},
-									"hiddenColumns": {
-										"g_duration": true,
-										"query_start_time": true,
-										"query_end_time": true,
-										"trend_interval": true,
-										"trend_interval_unit": true,
-										"eventstats8_func1_sum_g_count": true,
-										"eventstats8_func2_distinct_count_lookupField4xt_469867457456987626xf17": true
-									},
-									"highlightColumnStatus": {
-										"highlightedGroup1": {
-											"on": true,
-											"title": true
-										}
-									},
-									"hiddenClassifyCharts": {},
-									"showCombinedCharts": [
-										"off"
-									],
-									"showStack": [
-										"off"
-									],
-									"smartGroup": [
-										"off"
-									],
-									"styleDefaults": {
-										"lineType": "curved",
-										"markerDisplayed": "on"
-									},
-									"chartOptions": "bar",
-									"chartType": "bar",
-									"chartHeightVal": 200,
-									"chartWidthVal": 60,
-									"showToolTips": [
-										"on"
-									],
-									"dashboardOptions": {
-										"showTabs": [
-											"on"
-										],
-										"showSummary": [
-											"on"
-										],
-										"showAnalyzeTab": [],
-										"showChartsTab": [],
-										"showTable": [
-											"on"
-										]
-									},
-									"linkSummaryInput": "card=<field:Total Issues>\ncard=<field:Product Areas>"
-								},
-								"primaryFieldIname": "mbody",
-								"primaryFieldDname": "Original Log Content"
-							}
-						},
-						"queryString": "'Log Source' like 'JDE*' | link 'Log Source' | rename Count as 'Number of Issues' | stats latest(sensor) as Sensor | lookup table = 'JDE Functional Sensors' select 'Issue Summary', 'Issue Description' as Description, 'Solution KM Note' as N1, 'Business Flow', 'Business Impact', 'Product to raise SR if help needed', 'Prod Area', 'Issue Severity' using Sensor = 'Sensor Description' | eval Issue = url('https://support.oracle.com/epmos/faces/DocumentDisplay?&id=' || replace(N1, '.', '.') || '', 'Issue Summary') | eval 'File SR' = url('https://support.oracle.com/epmos/faces/SrCreate', SR) | highlightgroups color = #FF5733 [ * | where 'Issue Severity' = '4' ] as 'High Priority' | eventstats sum('Number of Issues') as 'Total Issues', distinctcount('Prod Area') as 'Product Areas' | fields -N1, -'Issue Severity', -'Log Source', -Sensor, -'Issue Summary'",
-						"scopeFilters": {
-							"filters": [
-								{
-									"type": "LogGroup",
-									"flags": {
-										"IncludeSubCompartments": true
-									},
-									"values": [
-										{
-											"value": "ocid1.tenancy.oc1..aaaaaaaa5s2vdjjrydixjulorcwozffbpna37w5a35p3jhgpyshlkmio6oiq",
-											"label": "emdemo (root)"
-										}
-									]
-								},
-								{
-									"type": "MetricCompartment",
-									"flags": {},
-									"values": []
-								},
-								{
-									"type": "Entity",
-									"flags": {
-										"IncludeDependents": true,
-										"ScopeCompartmentId": "ocid1.compartment.oc1..aaaaaaaa4yj2x6hjxntcf5vydrdvsm3trgblkmwgcmvxiar2miklv3ip4t7q"
-									},
-									"values": []
-								},
-								{
-									"type": "LogSet",
-									"flags": {},
-									"values": []
-								},
-								{
-									"type": "ResourceCompartment",
-									"flags": {
-										"IncludeSubCompartments": true
-									},
-									"values": [
-										{
-											"value": "ocid1.tenancy.oc1..aaaaaaaa5s2vdjjrydixjulorcwozffbpna37w5a35p3jhgpyshlkmio6oiq",
-											"label": "emdemo (root)"
-										}
-									]
-								},
-								{
-									"type": "LogFields",
-									"flags": {},
-									"values": []
-								},
-								{
-									"type": "Region",
-									"flags": {},
-									"values": [
-										{
-											"value": "us-phoenix-1",
-											"label": "US West (Phoenix)"
-										}
-									]
-								}
-							],
-							"isGlobal": false,
-							"LogGroup": {
-								"type": "LogGroup",
-								"flags": {
-									"IncludeSubCompartments": true
-								},
-								"values": [
-									{
-										"value": "ocid1.tenancy.oc1..aaaaaaaa5s2vdjjrydixjulorcwozffbpna37w5a35p3jhgpyshlkmio6oiq",
-										"label": "emdemo (root)"
-									}
-								]
-							},
-							"MetricCompartment": {
-								"type": "MetricCompartment",
-								"flags": {},
-								"values": []
-							},
-							"Entity": {
-								"type": "Entity",
-								"flags": {
-									"IncludeDependents": true,
-									"ScopeCompartmentId": "ocid1.compartment.oc1..aaaaaaaa4yj2x6hjxntcf5vydrdvsm3trgblkmwgcmvxiar2miklv3ip4t7q"
-								},
-								"values": []
-							},
-							"LogSet": {
-								"type": "LogSet",
-								"flags": {},
-								"values": []
-							},
-							"ResourceCompartment": {
-								"type": "ResourceCompartment",
-								"flags": {
-									"IncludeSubCompartments": true
-								},
-								"values": [
-									{
-										"value": "ocid1.tenancy.oc1..aaaaaaaa5s2vdjjrydixjulorcwozffbpna37w5a35p3jhgpyshlkmio6oiq",
-										"label": "emdemo (root)"
-									}
-								]
-							},
-							"LogFields": {
-								"type": "LogFields",
-								"flags": {},
-								"values": []
-							},
-							"Region": {
-								"type": "Region",
-								"flags": {},
-								"values": [
-									{
-										"value": "us-phoenix-1",
-										"label": "US West (Phoenix)"
-									}
-								]
-							}
-						},
-						"vizType": "lxSavedSearchWidgetType",
-						"enableWidgetInApp": true
-					},
-					"dataConfig": [],
-					"screenImage": " ",
-					"metadataVersion": "2.0",
-					"widgetTemplate": "visualizations/chartWidgetTemplate.html",
-					"widgetVM": "jet-modules/dashboards/widgets/lxSavedSearchWidget",
-					"freeformTags": {},
-					"definedTags": {},
-					"parametersConfig": [
-						{
-							"name": "log-analytics-log-group-compartment",
-							"displayName": "Log Group Compartment",
-							"required": true,
-							"defaultFilterIds": [
-								"OOBSS-management-dashboard-filter-4a"
-							],
-							"editUi": {
-								"inputType": "none"
-							},
-							"valueFormat": {
-								"type": "object"
-							}
-						},
-						{
-							"name": "log-analytics-entity",
-							"displayName": "Entity",
-							"required": true,
-							"defaultFilterIds": [
-								"OOBSS-management-dashboard-filter-2a"
-							],
-							"editUi": {
-								"inputType": "none"
-							},
-							"valueFormat": {
-								"type": "object"
-							}
-						},
-						{
-							"name": "log-analytics-log-set",
-							"displayName": "Log Set",
-							"required": true,
-							"hidden": "$(window.logSetNotEnabled)",
-							"defaultFilterIds": [
-								"OOBSS-management-dashboard-filter-3a"
-							],
-							"editUi": {
-								"inputType": "none"
-							},
-							"valueFormat": {
-								"type": "object"
-							}
-						},
-						{
-							"name": "log-analytics-region",
-							"displayName": "Region",
-							"required": false,
-							"defaultFilterIds": [
-								"OOBSS-management-dashboard-region-filter"
-							],
-							"editUi": {
-								"inputType": "savedSearch",
-								"filterTile": {
-									"filterId": "OOBSS-management-dashboard-region-filter"
-								}
-							}
-						},
-						{
-							"name": "time",
-							"displayName": "$(bundle.globalSavedSearch.TIME)",
-							"required": true,
-							"hidden": true
-						},
-						{
-							"name": "flex"
-						}
-					],
-					"featuresConfig": {
-						"crossService": {
-							"shared": true
-						}
-					},
-					"drilldownConfig": []
-				}
-			],
-			"parametersConfig": [
-				{
-					"savedSearchId": "OOBSS-management-dashboard-filter-4a",
-					"displayName": "Log Group Compartment",
-					"state": "DEFAULT",
-					"uiConfig": {
-						"internalKey": "OOBSS-management-dashboard-filter-4a",
-						"filterName": "log-analytics-loggroup-filter",
-						"vizFilterType": "lxLogGroupDashFilterType",
-						"defaultWidth": 3,
-						"minWidth": 3
-					},
-					"parametersMap": {
-						"isStoreInLocalStorage": true
-					},
-					"name": "log-analytics-loggroup-filter",
-					"localStorageKey": "log-analytics-loggroup-filter"
-				},
-				{
-					"savedSearchId": "OOBSS-management-dashboard-filter-2a",
-					"displayName": "Entity",
-					"width": 6,
-					"state": "DEFAULT",
-					"uiConfig": {
-						"internalKey": "OOBSS-management-dashboard-filter-2a",
-						"filterName": "log-analytics-entity-filter",
-						"vizFilterType": "lxEntityDashFilterType",
-						"defaultWidth": 6,
-						"minWidth": 6
-					},
-					"parametersMap": {
-						"isStoreInLocalStorage": true
-					},
-					"name": "log-analytics-entity-filter",
-					"localStorageKey": "log-analytics-entity-filter"
-				},
-				{
-					"name": "time",
-					"displayName": "$(bundle.globalSavedSearch.TIME)",
-					"src": "$(context.time)"
-				}
-			],
-			"featuresConfig": {
-				"crossService": {
-					"shared": false
-				}
-			},
-			"drilldownConfig": [],
-			"freeformTags": {},
-			"definedTags": {}
-		}
-	]
+  "dashboards": [
+    {
+      "dashboardId": "b2NpZDEubWFuYWdlbWVudGRhc2hib2FyZC5vYzEuLmFhYWFhYWFhN2VsYTVyNHl5djU1d3pwcnpqaGl2bXFmN2w2eGtreGc3Zmpobnd1eW5zeXd3azU3MjRtYQ==",
+      "providerId": "log-analytics",
+      "providerName": "Logging Analytics",
+      "providerVersion": "3.0.0",
+      "tiles": [
+        {
+          "displayName": "JDE Functional Issues Search",
+          "savedSearchId": "b2NpZDEubWFuYWdlbWVudHNhdmVkc2VhcmNoLm9jMS4uYWFhYWFhYWF4djI1YzNoMmFxZHZ1dml0ZTZlcHF5MnhleGhoaWR6d2t3aXZ0YzUzMm41dTNma2dsYWxh",
+          "row": 0,
+          "column": 0,
+          "height": 8,
+          "width": 12,
+          "nls": {},
+          "uiConfig": {},
+          "dataConfig": [],
+          "state": "DEFAULT",
+          "drilldownConfig": [],
+          "parametersMap": {
+            "log-analytics-log-group-compartment": "$(dashboard.params.log-analytics-loggroup-filter)",
+            "log-analytics-entity": "$(dashboard.params.log-analytics-entity-filter)",
+            "time": "$(dashboard.params.time)"
+          }
+        }
+      ],
+      "displayName": "JDE Functional Issues Dashboard",
+      "description": "JDE Functional Issues Dashboard",
+      "compartmentId": "${compartment_ocid}",
+      "isOobDashboard": false,
+      "isShowInHome": false,
+      "metadataVersion": "2.0",
+      "isShowDescription": true,
+      "screenImage": "todo: provide value[mandatory]",
+      "nls": {},
+      "uiConfig": {
+        "isFilteringEnabled": false,
+        "isTimeRangeEnabled": true,
+        "isRefreshEnabled": true
+      },
+      "dataConfig": [],
+      "type": "normal",
+      "isFavorite": false,
+      "savedSearches": [
+        {
+          "id": "b2NpZDEubWFuYWdlbWVudHNhdmVkc2VhcmNoLm9jMS4uYWFhYWFhYWF4djI1YzNoMmFxZHZ1dml0ZTZlcHF5MnhleGhoaWR6d2t3aXZ0YzUzMm41dTNma2dsYWxh",
+          "displayName": "JDE Functional Issues Search",
+          "providerId": "log-analytics",
+          "providerVersion": "3.0.0",
+          "providerName": "Logging Analytics",
+          "compartmentId": "${compartment_ocid}",
+          "isOobSavedSearch": false,
+          "description": "Log Explorer search saved to show the functional JDE issues",
+          "nls": {},
+          "type": "WIDGET_SHOW_IN_DASHBOARD",
+          "uiConfig": {
+            "timeSelection": {
+              "timePeriod": "l15min"
+            },
+            "showTitle": true,
+            "visualizationType": "link",
+            "visualizationOptions": {
+              "customVizOpt": {
+                "LINK_SEARCH_SETTINGS": {
+                  "showAllRegions": [],
+                  "tableColumns": [
+                    "High Priority",
+                    "Issue",
+                    "Description",
+                    "Number of Issues",
+                    "Business Flow",
+                    "Business Impact",
+                    "Product to raise SR if help needed",
+                    "Prod Area",
+                    "File SR",
+                    "Total Issues",
+                    "Product Areas",
+                    "Start Time (UTC-07:00)",
+                    "End Time (UTC-07:00)",
+                    "Start Time (UTC+03:00)",
+                    "End Time (UTC+03:00)"
+                  ],
+                  "groupAliasS": "Group",
+                  "groupAliasP": "Groups",
+                  "logAliasP": "Log Records",
+                  "showUnitRawData": [],
+                  "showNonUnitRawData": [
+                    "off"
+                  ],
+                  "mergeHighlightColumns": [
+                    "off"
+                  ],
+                  "columnAliases": {},
+                  "hiddenCharts": {
+                    "groupColumn": true
+                  },
+                  "hiddenColumns": {
+                    "g_duration": true,
+                    "query_start_time": true,
+                    "query_end_time": true,
+                    "trend_interval": true,
+                    "trend_interval_unit": true,
+                    "eventstats8_func1_sum_g_count": true,
+                    "eventstats8_func2_distinct_count_lookupField4xt_469867457456987626xf17": true
+                  },
+                  "highlightColumnStatus": {
+                    "highlightedGroup1": {
+                      "on": true,
+                      "title": true
+                    }
+                  },
+                  "hiddenClassifyCharts": {},
+                  "showCombinedCharts": [
+                    "off"
+                  ],
+                  "showStack": [
+                    "off"
+                  ],
+                  "smartGroup": [
+                    "off"
+                  ],
+                  "styleDefaults": {
+                    "lineType": "curved",
+                    "markerDisplayed": "on"
+                  },
+                  "chartOptions": "bar",
+                  "chartType": "bar",
+                  "chartHeightVal": 200,
+                  "chartWidthVal": 60,
+                  "showToolTips": [
+                    "on"
+                  ],
+                  "dashboardOptions": {
+                    "showTabs": [
+                      "on"
+                    ],
+                    "showSummary": [
+                      "on"
+                    ],
+                    "showAnalyzeTab": [],
+                    "showChartsTab": [],
+                    "showTable": [
+                      "on"
+                    ]
+                  },
+                  "linkSummaryInput": "card=<field:Total Issues>\ncard=<field:Product Areas>"
+                },
+                "primaryFieldIname": "mbody",
+                "primaryFieldDname": "Original Log Content"
+              }
+            },
+            "queryString": "'Log Source' like 'JDE*' | link 'Log Source' | rename Count as 'Number of Issues' | stats latest(sensor) as Sensor | lookup table = 'JDE Functional Sensors' select 'Issue Summary', 'Issue Description' as Description, 'Solution KM Note' as N1, 'Business Flow', 'Business Impact', 'Product to raise SR if help needed', 'Prod Area', 'Issue Severity' using Sensor = 'Sensor Description' | eval Issue = url('https://support.oracle.com/epmos/faces/DocumentDisplay?&id=' || replace(N1, '.', '.') || '', 'Issue Summary') | eval 'File SR' = url('https://support.oracle.com/epmos/faces/SrCreate', SR) | highlightgroups color = #FF5733 [ * | where 'Issue Severity' = '4' ] as 'High Priority' | eventstats sum('Number of Issues') as 'Total Issues', distinctcount('Prod Area') as 'Product Areas' | fields -N1, -'Issue Severity', -'Log Source', -Sensor, -'Issue Summary'",
+            "scopeFilters": {
+              "filters": [
+                {
+                  "type": "LogGroup",
+                  "flags": {
+                    "IncludeSubCompartments": true
+                  },
+                  "values": [
+                    {
+                      "value": "8a99fb9ebc99a79b826b31d807b87b2e",
+                      "label": "emdemo (root)"
+                    }
+                  ]
+                },
+                {
+                  "type": "MetricCompartment",
+                  "flags": {},
+                  "values": []
+                },
+                {
+                  "type": "Entity",
+                  "flags": {
+                    "IncludeDependents": true,
+                    "ScopeCompartmentId": "6aad207a6031eb36b9f4b82c5bc6e2eb"
+                  },
+                  "values": []
+                },
+                {
+                  "type": "LogSet",
+                  "flags": {},
+                  "values": []
+                },
+                {
+                  "type": "ResourceCompartment",
+                  "flags": {
+                    "IncludeSubCompartments": true
+                  },
+                  "values": [
+                    {
+                      "value": "8a99fb9ebc99a79b826b31d807b87b2e",
+                      "label": "emdemo (root)"
+                    }
+                  ]
+                },
+                {
+                  "type": "LogFields",
+                  "flags": {},
+                  "values": []
+                },
+                {
+                  "type": "Region",
+                  "flags": {},
+                  "values": [
+                    {
+                      "value": "us-phoenix-1",
+                      "label": "US West (Phoenix)"
+                    }
+                  ]
+                }
+              ],
+              "isGlobal": false,
+              "LogGroup": {
+                "type": "LogGroup",
+                "flags": {
+                  "IncludeSubCompartments": true
+                },
+                "values": [
+                  {
+                    "value": "8a99fb9ebc99a79b826b31d807b87b2e",
+                    "label": "emdemo (root)"
+                  }
+                ]
+              },
+              "MetricCompartment": {
+                "type": "MetricCompartment",
+                "flags": {},
+                "values": []
+              },
+              "Entity": {
+                "type": "Entity",
+                "flags": {
+                  "IncludeDependents": true,
+                  "ScopeCompartmentId": "6aad207a6031eb36b9f4b82c5bc6e2eb"
+                },
+                "values": []
+              },
+              "LogSet": {
+                "type": "LogSet",
+                "flags": {},
+                "values": []
+              },
+              "ResourceCompartment": {
+                "type": "ResourceCompartment",
+                "flags": {
+                  "IncludeSubCompartments": true
+                },
+                "values": [
+                  {
+                    "value": "8a99fb9ebc99a79b826b31d807b87b2e",
+                    "label": "emdemo (root)"
+                  }
+                ]
+              },
+              "LogFields": {
+                "type": "LogFields",
+                "flags": {},
+                "values": []
+              },
+              "Region": {
+                "type": "Region",
+                "flags": {},
+                "values": [
+                  {
+                    "value": "us-phoenix-1",
+                    "label": "US West (Phoenix)"
+                  }
+                ]
+              }
+            },
+            "vizType": "lxSavedSearchWidgetType",
+            "enableWidgetInApp": true
+          },
+          "dataConfig": [],
+          "screenImage": " ",
+          "metadataVersion": "2.0",
+          "widgetTemplate": "visualizations/chartWidgetTemplate.html",
+          "widgetVM": "jet-modules/dashboards/widgets/lxSavedSearchWidget",
+          "freeformTags": {},
+          "definedTags": {},
+          "parametersConfig": [
+            {
+              "name": "log-analytics-log-group-compartment",
+              "displayName": "Log Group Compartment",
+              "required": true,
+              "defaultFilterIds": [
+                "OOBSS-management-dashboard-filter-4a"
+              ],
+              "editUi": {
+                "inputType": "none"
+              },
+              "valueFormat": {
+                "type": "object"
+              }
+            },
+            {
+              "name": "log-analytics-entity",
+              "displayName": "Entity",
+              "required": true,
+              "defaultFilterIds": [
+                "OOBSS-management-dashboard-filter-2a"
+              ],
+              "editUi": {
+                "inputType": "none"
+              },
+              "valueFormat": {
+                "type": "object"
+              }
+            },
+            {
+              "name": "log-analytics-log-set",
+              "displayName": "Log Set",
+              "required": true,
+              "hidden": "$(window.logSetNotEnabled)",
+              "defaultFilterIds": [
+                "OOBSS-management-dashboard-filter-3a"
+              ],
+              "editUi": {
+                "inputType": "none"
+              },
+              "valueFormat": {
+                "type": "object"
+              }
+            },
+            {
+              "name": "log-analytics-region",
+              "displayName": "Region",
+              "required": false,
+              "defaultFilterIds": [
+                "OOBSS-management-dashboard-region-filter"
+              ],
+              "editUi": {
+                "inputType": "savedSearch",
+                "filterTile": {
+                  "filterId": "OOBSS-management-dashboard-region-filter"
+                }
+              }
+            },
+            {
+              "name": "time",
+              "displayName": "$(bundle.globalSavedSearch.TIME)",
+              "required": true,
+              "hidden": true
+            },
+            {
+              "name": "flex"
+            }
+          ],
+          "featuresConfig": {
+            "crossService": {
+              "shared": true
+            }
+          },
+          "drilldownConfig": []
+        }
+      ],
+      "parametersConfig": [
+        {
+          "savedSearchId": "OOBSS-management-dashboard-filter-4a",
+          "displayName": "Log Group Compartment",
+          "state": "DEFAULT",
+          "uiConfig": {
+            "internalKey": "OOBSS-management-dashboard-filter-4a",
+            "filterName": "log-analytics-loggroup-filter",
+            "vizFilterType": "lxLogGroupDashFilterType",
+            "defaultWidth": 3,
+            "minWidth": 3
+          },
+          "parametersMap": {
+            "isStoreInLocalStorage": true
+          },
+          "name": "log-analytics-loggroup-filter",
+          "localStorageKey": "log-analytics-loggroup-filter"
+        },
+        {
+          "savedSearchId": "OOBSS-management-dashboard-filter-2a",
+          "displayName": "Entity",
+          "width": 6,
+          "state": "DEFAULT",
+          "uiConfig": {
+            "internalKey": "OOBSS-management-dashboard-filter-2a",
+            "filterName": "log-analytics-entity-filter",
+            "vizFilterType": "lxEntityDashFilterType",
+            "defaultWidth": 6,
+            "minWidth": 6
+          },
+          "parametersMap": {
+            "isStoreInLocalStorage": true
+          },
+          "name": "log-analytics-entity-filter",
+          "localStorageKey": "log-analytics-entity-filter"
+        },
+        {
+          "name": "time",
+          "displayName": "$(bundle.globalSavedSearch.TIME)",
+          "src": "$(context.time)"
+        }
+      ],
+      "featuresConfig": {
+        "crossService": {
+          "shared": false
+        }
+      },
+      "drilldownConfig": [],
+      "freeformTags": {},
+      "definedTags": {}
+    }
+  ]
 }
