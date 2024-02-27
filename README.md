@@ -15,6 +15,8 @@ This OCI Resource Manager stack creates a instance in the subnet from which JDE 
 
 As part of this deployment, a compute instance is created and Oracle Cloud Agent is configured to collect log data. Users can select the JDE products that they are using and JDE sensor sources for those products are created. JDE Database entity and source-entity associations are also created.
 
+The JD Edwards EnterpriseOne sensors do not extract Personal Information (PI) from any table
+
 ## Prerequisites
 - VCN and subnet from where database can be accessed.
 - The subnet should have access to OCI Services (via a Service Gateway)
@@ -105,7 +107,7 @@ log_group_ocid="<LOG_GROUP_OCID>"
 la_entity_name = "<JDEDB entity name>"
 
 # Selected products
-#products="JD Edwards EnterpriseOne Accounts Payable, JD Edwards EnterpriseOne Accounts Receivable, JD Edwards EnterpriseOne Address Book, JD Edwards EnterpriseOne Advanced Pricing - Procurement, JD Edwards EnterpriseOne Advanced Pricing - Sales, JD Edwards EnterpriseOne Australia Payroll, JD Edwards EnterpriseOne Canadian Payroll, JD Edwards EnterpriseOne EDI, JD Edwards EnterpriseOne General Ledger, JD Edwards EnterpriseOne Inventory Foundation, JD Edwards EnterpriseOne Inventory Management, JD Edwards EnterpriseOne New Zealand Payroll, JD Edwards EnterpriseOne Procurement and Subcontract Management, JD Edwards EnterpriseOne Product Data Management, JD Edwards EnterpriseOne Sales Order Management, JD Edwards EnterpriseOne Shop Floor Control, JD Edwards EnterpriseOne Transportation Management, JD Edwards EnterpriseOne US Payroll"
+#products="JD Edwards EnterpriseOne Accounts Payable, JD Edwards EnterpriseOne Accounts Receivable, JD Edwards EnterpriseOne Address Book, JD Edwards EnterpriseOne Advanced Pricing - Procurement, JD Edwards EnterpriseOne Advanced Pricing - Sales, JD Edwards EnterpriseOne Australia - New Zealand Payroll, JD Edwards EnterpriseOne Canadian Payroll, JD Edwards EnterpriseOne EDI, JD Edwards EnterpriseOne General Ledger, JD Edwards EnterpriseOne Inventory Foundation, JD Edwards EnterpriseOne Inventory Management, JD Edwards EnterpriseOne Procurement and Subcontract Management, JD Edwards EnterpriseOne Product Data Management, JD Edwards EnterpriseOne Sales Order Management, JD Edwards EnterpriseOne Shop Floor Control, JD Edwards EnterpriseOne Transportation Management, JD Edwards EnterpriseOne US Payroll"
 
 products="JD Edwards EnterpriseOne Accounts Payable, JD Edwards EnterpriseOne Accounts Receivable, JD Edwards EnterpriseOne Address Book, JD Edwards EnterpriseOne Advanced Pricing - Procurement, JD Edwards EnterpriseOne Advanced Pricing - Sales, JD Edwards EnterpriseOne EDI, JD Edwards EnterpriseOne General Ledger, JD Edwards EnterpriseOne Inventory Foundation, JD Edwards EnterpriseOne Inventory Management, JD Edwards EnterpriseOne Procurement and Subcontract Management, JD Edwards EnterpriseOne Product Data Management, JD Edwards EnterpriseOne Sales Order Management, JD Edwards EnterpriseOne Shop Floor Control, JD Edwards EnterpriseOne Transportation Management"
 

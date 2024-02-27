@@ -21,7 +21,7 @@ variable "compartment_ocid" {
 
 variable "db_compartment" {
   type        = string
-  description = "The compartment OCID where EBS DB resides"
+  description = "The compartment OCID where JDE DB resides"
 }
 
 variable "resource_compartment" {
@@ -31,7 +31,7 @@ variable "resource_compartment" {
 
 variable "db_cred_compartment" {
   type        = string
-  description = "The compartment OCID where EBS DB password secret resides"
+  description = "The compartment OCID where JDE DB password secret resides"
 }
 
 variable "region" {
@@ -42,7 +42,7 @@ variable "region" {
 variable "instance_name" {
   type        = string
   description = "Display name for compute instance"
-  default     = "EBS-MgmtAgent"
+  default     = "JDE-MgmtAgent"
 }
 
 variable "availability_domain" {
@@ -71,28 +71,28 @@ variable "user_ssh_secret" {
 
 variable "db_host" {
   type        = string
-  description = "EBS DB Host"
+  description = "JDE DB Host"
 }
 
 variable "db_port" {
   type        = number
-  description = "EBS DB Port"
+  description = "JDE DB Port"
 }
 
 variable "db_service" {
   type        = string
-  description = "EBS DB Service Name"
+  description = "JDE DB Service Name"
 }
 
 
 variable "db_credentials" {
   type        = string
-  description = "OCID of secret in vault to use for connecting to EBS DB"
+  description = "OCID of secret in vault to use for connecting to JDE DB"
 }
 
 variable "db_username" {
   type        = string
-  description = "Username for connecting to EBS DB"
+  description = "Username for connecting to JDE DB"
 }
 
 variable "db_user_role" {
@@ -103,8 +103,32 @@ variable "db_user_role" {
 
 variable "la_entity_name" {
   type        = string
-  default     = "TestEBS"
-  description = "The EBS Entity Name."
+  default     = "JDEEntity"
+  description = "The JDE Entity Name."
+}
+
+variable "server_map_schema" {
+  type        = string
+  default     = "SVM920"
+  description = "Server Map Schema Name."
+}
+
+variable "system_schema" {
+  type        = string
+  default     = "SY920"
+  description = "System Schema Name."
+}
+
+variable "business_data_schema" {
+  type        = string
+  default     = "TESTDTA"
+  description = "Business Data Schema Name."
+}
+
+variable "control_tables_schema" {
+  type        = string
+  default     = "TESTCTL"
+  description = "Control Tables Schema Name."
 }
 
 variable "bucket_name" {
@@ -140,6 +164,6 @@ variable "products" {
 variable "dashboard_files" {
   description = "Dashboard JSON files"
   type = set(string)
-  default = ["EBS-Dashboards.json"]
+  default = ["JDE-Dashboard.json"]
   #default = ["eBS-sensors-dashboard.json"]
 }

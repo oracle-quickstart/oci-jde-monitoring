@@ -10,7 +10,7 @@ locals {
   mgmtagent_dynamic_group_name = "Mgmtagent_Dynamicgroup_${local.timestamp}"
   mgmtagent_policy_name        = "Mgmtagent_Policies_${local.timestamp}"
   db_name                      = "${var.la_entity_name}"
-  log_group_name               = "EBSDBLogs"
+  log_group_name               = "JDEDBLogs"
   target_system                = "jd-edwards"
   kc_path                      = "../../../knowledge-content/${local.target_system}"
 }
@@ -176,8 +176,8 @@ module "logan_sources" {
   source = "./modules/logan_sources"
   auth_type = var.auth_type
   config_file_profile = var.config_file_profile
-  namespace = local.namespace
   compartment_id = var.resource_compartment
+  schemas = tomap({"server_map_schema" = "${var.server_map_schema}", "system_schema" = "${var.system_schema}", "business_data_schema" = "${var.business_data_schema}", "control_tables_schema" = "${var.control_tables_schema}"})
   for_each = toset(split(",", var.products))
       path = format("%s/%s", "${local.kc_path}/log-sources", each.value)
 }
@@ -185,7 +185,7 @@ module "logan_sources" {
 resource "null_resource" "import_lookups" {
 
   provisioner "local-exec" {
-    command = "python3 ./scripts/import_lookup.py -t Lookup -a ${var.auth_type} -p ${var.config_file_profile} -n \"EBS Functional Sensors\" -f ${local.kc_path}/logan-lookups/EBS_Lookup.csv"
+    command = "python3 ./scripts/import_lookup.py -t Lookup -a ${var.auth_type} -p ${var.config_file_profile} -n \"JDE Functional Sensors\" -f ${local.kc_path}/logan-lookups/JDE_Lookup.csv"
   }
 }
 
@@ -209,7 +209,7 @@ module "create_assoc" {
       config_file_profile = var.config_file_profile
       entity_compartment_id = var.resource_compartment
       entity_id = module.la_entity.entity_id
-      filepath = format("%s/%s", "${local.kc_path}/sources", each.value)
+      filepath = format("%s/%s", "${local.kc_path}/log-sources", each.value)
       loggroup_id = var.create_log_group? oci_log_analytics_log_analytics_log_group.test_log_group[0].id : var.log_group_ocid
 }
 

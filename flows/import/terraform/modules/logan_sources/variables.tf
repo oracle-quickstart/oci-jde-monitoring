@@ -4,9 +4,9 @@ variable compartment_id {
 variable "path" {
   type = string
 }
-variable "namespace" {
-  type = string
-}
 
 variable "auth_type" {}
 variable "config_file_profile" {}
+variable "schemas" {
+  type = map
+}
