@@ -143,3 +143,18 @@ When you no longer need the deployment, you can run this command to destroy the 
 - ALLOW DYNAMIC-GROUP <instance_dynamic_group_name> TO MANAGE OBJECTS IN COMPARTMENT ID <db_compartment_ocid>
 - ALLOW DYNAMIC-GROUP <instance_dynamic_group_name> TO READ BUCKETS IN COMPARTMENT ID <db_compartment_ocid>
 - ALLOW DYNAMIC-GROUP <instance_dynamic_group_name> TO READ secret-family in COMPARTMENT ID <vault_compartment_ocid>} where target.secret.id = '<db_secret_ocid>'
+
+## Contributing
+
+This project welcomes contributions from the community. Before submitting a pull request, please [review our contribution guide](./CONTRIBUTING.md)
+
+## Security
+
+Please consult the [security guide](./SECURITY.md) for our responsible security vulnerability disclosure process
+
+## License
+
+Copyright (c) 2023 Oracle and/or its affiliates.
+
+Released under the Universal Permissive License v1.0 as shown at
+<https://oss.oracle.com/licenses/upl/>.
